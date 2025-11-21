@@ -86,66 +86,54 @@ export function BookOfGuests() {
   return (
     <div 
       id="guests" 
-      className="relative z-[55] isolate bg-gradient-to-b from-[#0A3428] via-[#106552]/90 to-[#0A3428] py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative z-[55] isolate bg-gradient-to-b from-[#081623] via-[#172652]/90 to-[#081623] py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
       {/* Subtle background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#C3A161]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#C3A161]/5 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#B38538]/5 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#B38538]/5 to-transparent" />
         
-        {/* Bottom-left flower decoration */}
-        <img
-          src="/decoration/left-bottom-left-flower.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none"
-        />
-        
-        {/* Bottom-right flower decoration */}
-        <img
-          src="/decoration/left-bottom-left-flower.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 right-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none scale-x-[-1]"
-        />
+        {/* Decorative accent circles */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#304C7E]/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#74A0C5]/15 rounded-full blur-3xl" />
       </div>
 
-      {/* Section Header */}
-      <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-[#FFFFFF] mb-3 sm:mb-4 text-balance">
+      {/* Section Header - compact on mobile */}
+      <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#FFFFFF] mb-2 sm:mb-3 text-balance">
           Book of Guests
         </h2>
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#FFFFFF]/90 font-sans font-light max-w-2xl mx-auto px-2 sm:px-4 leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-[#FFFFFF]/90 font-sans font-light max-w-2xl mx-auto px-2 leading-relaxed">
           See who's celebrating with us on our special day
         </p>
       </div>
 
       {/* Guests content */}
       <div className="relative z-10">
-        {/* Stats card */}
-        <div className="text-center mb-6 sm:mb-8 md:mb-10 px-3 sm:px-4 md:px-6">
+        {/* Stats card - compact */}
+        <div className="text-center mb-4 sm:mb-5 md:mb-6 px-2 sm:px-3 md:px-4">
           <div className="relative max-w-3xl mx-auto">
-            <div className="relative bg-white/95 backdrop-blur-sm border border-[#C3A161]/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl overflow-hidden">
+            <div className="relative bg-white/95 backdrop-blur-sm border border-[#B38538]/30 rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg sm:shadow-xl overflow-hidden">
               {/* Inner gold border */}
-              <div className="absolute inset-2 sm:inset-3 md:inset-4 border border-[#C3A161] rounded-lg sm:rounded-xl pointer-events-none" />
+              <div className="absolute inset-1.5 sm:inset-2 md:inset-3 border border-[#B38538] rounded-md sm:rounded-lg md:rounded-xl pointer-events-none" />
               
-              {/* Content */}
+              {/* Content - compact */}
               <div className="relative z-10">
-                <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <div className="bg-gradient-to-br from-[#0A3428] to-[#106552] p-2 sm:p-3 rounded-full shadow-lg">
-                    <Heart className="text-[#FFFFFF] h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+                <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-3 md:mb-4">
+                  <div className="bg-gradient-to-br from-[#081623] to-[#172652] p-1.5 sm:p-2 rounded-full shadow-md">
+                    <Heart className="text-[#FFFFFF] h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                   </div>
                   <div className="flex flex-col items-center">
-                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-sans font-bold text-[#0A3428]">
+                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-sans font-bold text-[#081623]">
                       {totalGuests} {totalGuests === 1 ? "Guest" : "Guests"} Celebrating With Us
                     </h3>
-                    <p className="text-xs sm:text-sm md:text-base text-[#0A3428]/70 font-sans mt-1">
+                    <p className="text-[10px] sm:text-xs md:text-sm text-[#081623]/70 font-sans mt-0.5">
                       {guests.length} {guests.length === 1 ? "RSVP entry" : "RSVP entries"}
                     </p>
                   </div>
                 </div>
-                <p className="text-sm sm:text-base md:text-lg text-[#0A3428]/80 font-sans leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base text-[#081623]/80 font-sans leading-relaxed">
                   Thank you for confirming your RSVP! Your presence means the world to us.
                 </p>
               </div>
@@ -153,84 +141,84 @@ export function BookOfGuests() {
           </div>
         </div>
 
-        {/* Guest list container */}
-        <div className="max-w-5xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-          <div className="relative bg-white/95 backdrop-blur-sm border border-[#C3A161]/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-2xl overflow-hidden">
+        {/* Guest list container - compact */}
+        <div className="max-w-5xl mx-auto px-2 sm:px-3 md:px-4 lg:px-6">
+          <div className="relative bg-white/95 backdrop-blur-sm border border-[#B38538]/30 rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-lg sm:shadow-xl overflow-hidden">
             {/* Inner gold border */}
-            <div className="absolute inset-2 sm:inset-3 md:inset-4 border border-[#C3A161] rounded-lg sm:rounded-xl pointer-events-none" />
+            <div className="absolute inset-1.5 sm:inset-2 md:inset-3 border border-[#B38538] rounded-md sm:rounded-lg md:rounded-xl pointer-events-none" />
             
             {isLoading ? (
-              <div className="flex items-center justify-center py-24">
-                <div className="flex flex-col items-center gap-4">
-                  <Loader2 className="h-12 w-12 animate-spin text-[#C3A161]" />
-                  <span className="text-[#0A3428] font-sans text-lg">Loading guests...</span>
+              <div className="flex items-center justify-center py-12 sm:py-16 md:py-20">
+                <div className="flex flex-col items-center gap-3">
+                  <Loader2 className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 animate-spin text-[#B38538]" />
+                  <span className="text-[#081623] font-sans text-sm sm:text-base md:text-lg">Loading guests...</span>
                 </div>
               </div>
             ) : error ? (
-              <div className="flex items-center justify-center py-24">
+              <div className="flex items-center justify-center py-12 sm:py-16 md:py-20">
                 <div className="text-center">
-                  <MessageSquare className="h-12 w-12 text-red-500 mx-auto mb-4" />
-                  <p className="text-red-500 font-sans text-lg mb-2">{error}</p>
+                  <MessageSquare className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 text-red-500 mx-auto mb-3 sm:mb-4" />
+                  <p className="text-red-500 font-sans text-sm sm:text-base md:text-lg mb-2">{error}</p>
                 </div>
               </div>
             ) : guests.length === 0 ? (
-              <div className="flex items-center justify-center py-24">
+              <div className="flex items-center justify-center py-12 sm:py-16 md:py-20">
                 <div className="text-center">
-                  <div className="bg-gradient-to-br from-[#0A3428] to-[#106552] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Heart className="h-8 w-8 text-[#FFFFFF]" />
+                  <div className="bg-gradient-to-br from-[#081623] to-[#172652] w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Heart className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-[#FFFFFF]" />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-sans font-bold text-[#0A3428] mb-2">
+                  <h3 className="text-base sm:text-lg md:text-xl font-sans font-bold text-[#081623] mb-1.5 sm:mb-2">
                     No guests have RSVP'd yet
                   </h3>
-                  <p className="text-sm sm:text-base text-[#0A3428]/70 font-sans max-w-md mx-auto leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base text-[#081623]/70 font-sans max-w-md mx-auto leading-relaxed px-4">
                     Be the first to RSVP and kick off the celebration!
                   </p>
                 </div>
               </div>
             ) : (
-              <div className="space-y-3 sm:space-y-4 relative z-10">
+              <div className="space-y-2 sm:space-y-2.5 md:space-y-3 relative z-10">
                 {guests.map((guest, index) => (
                   <div
                     key={index}
-                    className="group relative bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-[#C3A161]/30 hover:border-[#C3A161]/50 transition-all duration-300 hover:shadow-md"
+                    className="group relative bg-white rounded-lg sm:rounded-xl p-2.5 sm:p-3 md:p-4 border border-[#B38538]/30 hover:border-[#B38538]/50 transition-all duration-300 hover:shadow-md"
                   >
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                      {/* Avatar */}
-                      <div className="relative h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 flex-shrink-0">
-                        <div className="h-full w-full rounded-full bg-gradient-to-br from-[#0A3428] to-[#106552] text-[#FFFFFF] flex items-center justify-center font-semibold shadow-md ring-2 ring-white text-sm sm:text-base">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                      {/* Avatar - compact */}
+                      <div className="relative h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 flex-shrink-0">
+                        <div className="h-full w-full rounded-full bg-gradient-to-br from-[#081623] to-[#172652] text-[#FFFFFF] flex items-center justify-center font-semibold shadow-md ring-2 ring-white text-xs sm:text-sm md:text-base">
                           {getInitials(guest.Name)}
                         </div>
                       </div>
                       
-                      {/* Guest Info */}
+                      {/* Guest Info - compact */}
                       <div className="flex-1 min-w-0">
-                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-3">
-                          <div className="flex-1 pr-14 sm:pr-0">
-                            <h4 className="font-sans text-base sm:text-lg md:text-xl font-semibold text-[#0A3428] mb-1 group-hover:text-[#106552] transition-colors duration-200">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5 sm:gap-2">
+                          <div className="flex-1 pr-20 sm:pr-0">
+                            <h4 className="font-sans text-sm sm:text-base md:text-lg font-semibold text-[#081623] mb-0.5 sm:mb-1 group-hover:text-[#172652] transition-colors duration-200">
                               {guest.Name}
                             </h4>
                             {guest.Email && guest.Email !== "Pending" && (
-                              <div className="flex items-center text-xs sm:text-sm text-[#0A3428]/70">
-                                <Mail className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 text-[#C3A161] flex-shrink-0" />
+                              <div className="flex items-center text-[10px] sm:text-xs md:text-sm text-[#081623]/70">
+                                <Mail className="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5 mr-1 sm:mr-1.5 text-[#B38538] flex-shrink-0" />
                                 <span className="font-sans break-all">{guest.Email}</span>
                               </div>
                             )}
                           </div>
-                          {/* Guest count badge */}
-                          <div className="absolute right-3 top-3 sm:static sm:right-auto sm:top-auto flex items-center gap-1.5 sm:gap-2">
-                            <User className="h-4 w-4 text-[#C3A161] flex-shrink-0" />
-                            <span className="inline-flex items-center justify-center px-3 py-1 bg-[#C3A161]/10 text-[#106552] rounded-full text-xs sm:text-sm font-semibold border border-[#C3A161]/30">
+                          {/* Guest count badge - compact */}
+                          <div className="absolute right-2.5 top-2.5 sm:static sm:right-auto sm:top-auto flex items-center gap-1">
+                            <User className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#B38538] flex-shrink-0" />
+                            <span className="inline-flex items-center justify-center px-2 py-0.5 sm:px-2.5 sm:py-1 bg-[#B38538]/10 text-[#172652] rounded-full text-[10px] sm:text-xs font-semibold border border-[#B38538]/30">
                               {guest.Guest ? (parseInt(String(guest.Guest)) || 1) : 1} {parseInt(String(guest.Guest || '1')) === 1 ? 'guest' : 'guests'}
                             </span>
                           </div>
                         </div>
                         
-                        {/* Message */}
+                        {/* Message - compact */}
                         {guest.Message && (
-                          <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-[#C3A161]/20">
-                            <div className="flex items-start gap-2 sm:gap-3">
-                              <MessageSquare className="h-4 w-4 text-[#C3A161] flex-shrink-0 mt-0.5" />
-                              <p className="text-xs sm:text-sm md:text-base text-[#0A3428]/80 font-sans leading-relaxed italic flex-1">
+                          <div className="mt-2 sm:mt-2.5 md:mt-3 pt-2 sm:pt-2.5 md:pt-3 border-t border-[#B38538]/20">
+                            <div className="flex items-start gap-1.5 sm:gap-2">
+                              <MessageSquare className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4 text-[#B38538] flex-shrink-0 mt-0.5" />
+                              <p className="text-[10px] sm:text-xs md:text-sm text-[#081623]/80 font-sans leading-relaxed italic flex-1">
                                 "{guest.Message}"
                               </p>
                             </div>

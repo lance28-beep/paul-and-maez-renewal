@@ -23,7 +23,7 @@ export function PrincipalSponsors() {
     const textAlign =
       align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
     return (
-      <h3 className={`anton-regular text-base sm:text-lg md:text-xl lg:text-2xl font-bold uppercase text-[#BB8A3D] mb-2 sm:mb-3 md:mb-4 tracking-[0.15em] ${textAlign} ${className}`}>
+      <h3 className={`anton-regular text-xs sm:text-sm md:text-base lg:text-lg font-bold uppercase text-[#BB8A3D] mb-1.5 sm:mb-2 md:mb-3 tracking-[0.12em] ${textAlign} ${className}`}>
         {children}
       </h3>
     )
@@ -36,8 +36,8 @@ export function PrincipalSponsors() {
     const textAlign =
       align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
     return (
-      <div className={`flex flex-col ${containerAlign} justify-center py-1 sm:py-1.5 md:py-2 w-full`}>
-        <p className={`text-slate-700 text-[13px] sm:text-sm md:text-base font-medium leading-snug break-words ${textAlign}`}>{name}</p>
+      <div className={`flex flex-col ${containerAlign} justify-center py-0.5 sm:py-1 md:py-1.5 w-full`}>
+        <p className={`text-slate-700 text-[10px] sm:text-xs md:text-sm font-medium leading-snug break-words ${textAlign}`}>{name}</p>
       </div>
     )
   }
@@ -75,50 +75,34 @@ export function PrincipalSponsors() {
   return (
     <Section
       id="sponsors"
-      className="relative bg-gradient-to-b from-[#0A3428] via-[#106552]/90 to-[#0A3428] py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative bg-gradient-to-b from-[#1e3a8a] via-[#3b82f6]/90 to-[#1e3a8a] py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 overflow-hidden"
     >
       {/* Subtle background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#C3A161]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#C3A161]/5 to-transparent" />
-        
-        {/* Bottom-left flower decoration */}
-        <img
-          src="/decoration/left-bottom-left-flower.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none"
-        />
-        
-        {/* Bottom-right flower decoration */}
-        <img
-          src="/decoration/left-bottom-left-flower.png"
-          alt=""
-          aria-hidden="true"
-          className="absolute bottom-0 right-0 z-10 w-64 sm:w-80 md:w-96 lg:w-[28rem] xl:w-[32rem] opacity-90 select-none pointer-events-none scale-x-[-1]"
-        />
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#d4af37]/5 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#d4af37]/5 to-transparent" />
       </div>
 
-      {/* Section Header */}
-      <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-[#FFFFFF] mb-4 sm:mb-6 drop-shadow-md">
+      {/* Section Header - compact on mobile */}
+      <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 px-3 sm:px-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#FFFFFF] mb-1.5 sm:mb-2 md:mb-3 drop-shadow-md">
           Principal Sponsors
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-[#FFFFFF]/90 font-light max-w-xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-[#FFFFFF]/90 font-light max-w-xl mx-auto leading-relaxed">
           Our Beloved Godparents
         </p>
       </div>
 
-      {/* Sponsors content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+      {/* Sponsors content - compact padding on mobile */}
+      <div className="relative z-10 max-w-5xl mx-auto px-2 sm:px-3 md:px-4 lg:px-6">
         {/* White card with elegant border */}
-        <div className="relative bg-white/85 backdrop-blur-sm border border-[#F1EDE2]/30 rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden">
-          {/* Inner gold border */}
-          <div className="absolute inset-2 sm:inset-3 md:inset-4 border border-[#F1EDE2] rounded-lg sm:rounded-xl pointer-events-none" />
+        <div className="relative bg-white/85 backdrop-blur-sm border border-[#F1EDE2]/30 rounded-lg sm:rounded-xl md:rounded-2xl shadow-xl sm:shadow-2xl overflow-hidden">
+          {/* Inner gold border - thinner on mobile */}
+          <div className="absolute inset-1.5 sm:inset-2 md:inset-3 border border-[#F1EDE2] rounded-md sm:rounded-lg md:rounded-xl pointer-events-none" />
           
-          {/* Card content */}
-          <div className="relative p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+          {/* Card content - compact padding on mobile */}
+          <div className="relative p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10">
             {/* Global font for Anton to match Entourage section */}
             <style jsx global>{`
               @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
@@ -130,49 +114,49 @@ export function PrincipalSponsors() {
             `}</style>
             <div className="relative z-10 w-full">
               {isLoading ? (
-                <div className="flex items-center justify-center py-24">
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="w-12 h-12 border-4 border-[#F1EDE2]/30 border-t-[#F1EDE2] rounded-full animate-spin" />
-                    <span className="text-[#AFC8E6] font-serif text-lg">Loading sponsors...</span>
+                <div className="flex items-center justify-center py-16 sm:py-20 md:py-24">
+                  <div className="flex flex-col items-center gap-3 sm:gap-4">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border-3 sm:border-4 border-[#F1EDE2]/30 border-t-[#F1EDE2] rounded-full animate-spin" />
+                    <span className="text-[#AFC8E6] font-serif text-sm sm:text-base md:text-lg">Loading sponsors...</span>
                   </div>
                 </div>
               ) : error ? (
-                <div className="flex items-center justify-center py-24">
+                <div className="flex items-center justify-center py-16 sm:py-20 md:py-24">
                   <div className="text-center">
-                    <p className="text-red-500 font-serif text-lg mb-2">{error}</p>
+                    <p className="text-red-500 font-serif text-sm sm:text-base md:text-lg mb-2">{error}</p>
                     <button
                       onClick={fetchSponsors}
-                      className="text-[#AFC8E6] hover:text-[#D8B0B0] font-serif underline"
+                      className="text-[#AFC8E6] hover:text-[#D8B0B0] font-serif underline text-xs sm:text-sm"
                     >
                       Try again
                     </button>
                   </div>
                 </div>
               ) : sponsorPairs.length === 0 ? (
-                <div className="text-center py-24">
-                  <p className="text-[#AFC8E6] font-serif text-lg">No sponsors yet</p>
+                <div className="text-center py-16 sm:py-20 md:py-24">
+                  <p className="text-[#AFC8E6] font-serif text-sm sm:text-base md:text-lg">No sponsors yet</p>
                 </div>
               ) : (
-                <div className="mb-5 sm:mb-7 md:mb-9 lg:mb-12">
-                  <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-2 sm:gap-x-3 md:gap-x-4 mb-2.5 sm:mb-3.5 md:mb-5">
-                    <SectionTitle align="right" className="pr-3 sm:pr-4 md:pr-6">Male Principal Sponsors</SectionTitle>
-                    <SectionTitle align="left" className="pl-3 sm:pl-4 md:pl-6">Female Principal Sponsors</SectionTitle>
+                <div className="mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+                  <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 mb-1.5 sm:mb-2 md:mb-3">
+                    <SectionTitle align="right" className="pr-2 sm:pr-3 md:pr-4">Male Principal Sponsors</SectionTitle>
+                    <SectionTitle align="left" className="pl-2 sm:pl-3 md:pl-4">Female Principal Sponsors</SectionTitle>
                   </div>
-                  <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-2 sm:gap-x-3 md:gap-x-4 gap-y-1.5 sm:gap-y-2 md:gap-y-3 items-stretch">
+                  <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-0.5 sm:gap-y-1 md:gap-y-1.5 items-stretch">
                     {sponsorPairs.map((pair, idx) => (
                       <>
-                        <div key={`male-${idx}-${pair.MalePrincipalSponsor || 'empty'}`} className="px-3 sm:px-4 md:px-6">
+                        <div key={`male-${idx}-${pair.MalePrincipalSponsor || 'empty'}`} className="px-2 sm:px-3 md:px-4">
                           {pair.MalePrincipalSponsor ? (
                             <NameItem name={pair.MalePrincipalSponsor} align="right" />
                           ) : (
-                            <div className="py-1 sm:py-1.5 md:py-2" />
+                            <div className="py-0.5 sm:py-1 md:py-1.5" />
                           )}
                         </div>
-                        <div key={`female-${idx}-${pair.FemalePrincipalSponsor || 'empty'}`} className="px-3 sm:px-4 md:px-6">
+                        <div key={`female-${idx}-${pair.FemalePrincipalSponsor || 'empty'}`} className="px-2 sm:px-3 md:px-4">
                           {pair.FemalePrincipalSponsor ? (
                             <NameItem name={pair.FemalePrincipalSponsor} align="left" />
                           ) : (
-                            <div className="py-1 sm:py-1.5 md:py-2" />
+                            <div className="py-0.5 sm:py-1 md:py-1.5" />
                           )}
                         </div>
                       </>

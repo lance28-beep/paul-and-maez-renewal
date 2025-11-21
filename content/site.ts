@@ -1,17 +1,17 @@
 export const siteConfig = {
   couple: {
-    bride: "Airez Joy Caspillo Anggalan",
-    brideNickname: "Airez",
-    groom: "Brendan Joe Grima",
-    groomNickname: "Brendan",
+    bride: "Maez",
+    brideNickname: "Maez",
+    groom: "Paul",
+    groomNickname: "Paul",
   },
   wedding: {
-    date: "December 28, 2025",
-    time: "11:00 AM",
-    venue: "SMDC Jazz Residence",
-    tagline: "are getting married!",
-    theme: "Christmas Wedding 🎄",
-    motif: "Burgundy Red & Emerald Green",
+    date: "December 22, 2025",
+    time: "2:00 PM",
+    venue: "Holy Cross Parish & Kangara Gymnasium",
+    tagline: "Renewing Our Vows",
+    theme: "Renewal of Vows Celebration 💙",
+    motif: "Navy Blue with Gold & White",
   },
   details: {
     rsvp: {
@@ -19,49 +19,67 @@ export const siteConfig = {
     },
   },
   ceremony: {
-    location: "SMDC Jazz Residence",
-    venue: "SMDC Jazz Residence",
-    date: "December 28, 2025",
-    day: "Sunday",
-    time: "11:00 AM",
-    entourageTime: "10:00 AM",
-    guestsTime: "10:30 AM",
+    location: "Holy Cross Parish, Carigara, Leyte",
+    venue: "Holy Cross Parish",
+    address: "Carigara, Leyte",
+    date: "December 22, 2025",
+    day: "Monday",
+    time: "2:00 PM",
+    entourageTime: "1:00 PM",
+    guestsTime: "1:30 PM",
   },
   reception: {
-    location: "SMDC Jazz Residence",
-    venue: "SMDC Jazz Residence",
-    date: "December 28, 2025",
-    time: "12:00 NN",
+    location: "Kangara Gymnasium, Carigara, Leyte",
+    venue: "Kangara Gymnasium",
+    address: "Carigara, Leyte",
+    date: "December 22, 2025",
+    time: "3:00 PM",
+  },
+  prewedding: {
+    location: "Bella Anthea Resort, Brgy. Manloy, Carigara, Leyte",
+    venue: "Bella Anthea Resort",
+    address: "Brgy. Manloy, Carigara, Leyte",
+    purpose: "Pre-wedding Hair & Makeup",
   },
   dressCode: {
-    theme: "Christmas Wedding 🎄",
-    colors: ["#0A3428", "#106552", "#751A2C", "#C3A161"],
+    theme: "Renewal of Vows Celebration 💙",
+    colors: ["#081623", "#172652", "#304C7E", "#74A0C5", "#B38538", "#FFFFFF"],
     sponsors: {
-      ladies: "White gown / long dress ",
+      ladies: "White gown / long dress",
       gentlemen: "Black suit and tie"
     },
     guests: {
       ladies: "Long or cocktail dress",
       gentlemen: "Long sleeve, polo, pants or suit"
     },
-    note: "Please avoid jeans and casual attire."
+    note: "Navy blue with touch of gold and more white."
   },
-  narrative: `In 2020, during the quiet days of the pandemic, fate found a way to bring two hearts together — one from Australia, and one from the Philippines. Through an online word game called Codenames, Brendan and Airez met. What started as playful teasing soon turned into long conversations, laughter, and a friendship that grew stronger with every passing day. \n
+  narrative: `Together with their families,
 
-For years, they were just friends — two souls connected across miles and time zones. But even through screens, something beautiful began to bloom. Their bond deepened, their connection strengthened, and before they knew it, friendship had turned into love. \n
+Paul & Maez
 
-Then came July 23, 2022 — the day they made it official in private. It was a quiet promise between two hearts who had found something rare and real — because for both Brendan and Airez, this was their first love. ❤️ \n
+joyfully invite you to celebrate a beautiful milestone—
 
-A few months later, on October 23, 2022, Brendan flew from Australia to the Philippines to finally meet Airez in person — and her family for the first time. That day was filled with emotions, laughter, and happy tears. It was also the day they made their relationship public, proudly sharing their love with the world after keeping it private for so long. \n
+their Renewal of Vows
 
-In July 2025, their story reached a beautiful turning point. Brendan, together with his parents, returned to the Philippines to meet Airez’s family once again and proposed in front of them — a heartfelt moment that brought both families together in love and joy. \n
+as they honor the love that began on
 
-From a simple online game to a love that grew through distance, patience, and faith — their journey is a beautiful reminder that true love knows no distance and always finds its way. \n
+22 December 2021
 
-And now, hand in hand, heart to heart, Brendan and Airez are ready to begin their forever — a lifetime of love, laughter, and endless “us.” ❤️`,
+and continues to grow stronger each day.
+
+Through laughter, challenges, and countless precious moments, their love has deepened and flourished. Four years of marriage have taught them that true love is not just about finding the right person, but about being the right partner—growing together, supporting each other, and choosing love every single day.
+
+Now, they stand ready to renew the promises they made to each other, reaffirming their commitment in front of family and friends who have witnessed and supported their journey.
+
+Join us as we celebrate not just a ceremony, but a testament to enduring love, unwavering partnership, and the beautiful journey that continues to unfold.
+
+Because some love stories don't just begin—they grow, they evolve, and they become even more beautiful with time. 💙`,
   colors: {
-    primary: "#0A3428",
-    secondary: "#106552",
+    primary: "#081623",
+    secondary: "#172652",
+    accent: "#B38538",
+    light: "#74A0C5",
   },
 }
 
