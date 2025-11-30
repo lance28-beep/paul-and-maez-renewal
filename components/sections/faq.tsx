@@ -70,21 +70,21 @@ export function FAQ() {
 
   return (
     <div style={{ backgroundColor: "#081623" }}>
-      <Section
-        id="faq"
-        className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
-      >
-        {/* Background Image */}
+    <Section
+      id="faq"
+      className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+    >
+      {/* Background Image */}
         <div className="absolute inset-0 z-0 opacity-25">
-          <Image
+        <Image
             src="/decoration/galleryNewBG.jpg"
-            alt="FAQ background"
-            fill
-            className="object-cover object-center"
-            priority={false}
-            quality={90}
-          />
-        </div>
+          alt="FAQ background"
+          fill
+          className="object-cover object-center"
+          priority={false}
+          quality={90}
+        />
+      </div>
 
         {/* Enhanced gradient overlays for depth */}
         <div className="absolute inset-0 z-0 pointer-events-none">

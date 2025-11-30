@@ -45,8 +45,8 @@ export const siteConfig = {
     theme: "Renewal of Vows Celebration 💙",
     colors: ["#081623", "#172652", "#304C7E", "#74A0C5", "#B38538", "#FFFFFF"],
     sponsors: {
-      ladies: "White gown / long dress",
-      gentlemen: "Black suit and tie"
+      ladies: "Navy blue or Filipiniana outfit",
+      gentlemen: "Barong"
     },
     guests: {
       ladies: "Long or cocktail dress",

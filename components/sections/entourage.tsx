@@ -28,10 +28,10 @@ const ROLE_CATEGORY_ORDER = [
   "Candle Sponsors",
   "Veil Sponsors",
   "Cord Sponsors",
-  "Ring/Coin Bearers",
-  "Flower Girls/Boys",
   "Little Bride",
   "Little Groom",
+  "Ring/Coin Bearers",
+  "Flower Girls/Boys",
   "Offerer",
 ]
 
@@ -294,6 +294,73 @@ export function Entourage() {
                     </div>
                   )
                 }
+
+                // Special handling for Flower Girls/Boys - combine Flower Girls and Flower Boys (comes before early return)
+                if (category === "Flower Girls/Boys") {
+                  // First check if the category exists directly (as "Flower Girls/Boys")
+                  const directFlowerCategory = grouped["Flower Girls/Boys"] || []
+                  
+                  // Check for separate categories (plural and singular)
+                  let flowerGirls = grouped["Flower Girls"] || grouped["Flower Girl"] || []
+                  let flowerBoys = grouped["Flower Boys"] || grouped["Flower Boy"] || []
+                  
+                  // If no direct category and no separate categories, search for any category containing "flower" (case-insensitive)
+                  if (directFlowerCategory.length === 0 && flowerGirls.length === 0 && flowerBoys.length === 0) {
+                    const allFlowerCategories = Object.keys(grouped).filter(cat => 
+                      cat.toLowerCase().includes("flower") && 
+                      !cat.toLowerCase().includes("girls/boys") // Exclude the combined category itself
+                    )
+                    allFlowerCategories.forEach(cat => {
+                      const members = grouped[cat] || []
+                      // Try to determine if it's a girl or boy category
+                      const lowerCat = cat.toLowerCase()
+                      if (lowerCat.includes("girl")) {
+                        flowerGirls = [...flowerGirls, ...members]
+                      } else if (lowerCat.includes("boy")) {
+                        flowerBoys = [...flowerBoys, ...members]
+                      } else {
+                        // If unclear, default to flowerGirls
+                        flowerGirls = [...flowerGirls, ...members]
+                      }
+                    })
+                  }
+                  
+                  // Combine all flower members
+                  const allFlowers = [...directFlowerCategory, ...flowerGirls, ...flowerBoys]
+                  
+                  if (allFlowers.length === 0) return null
+                  
+                  return (
+                    <div key="FlowerGirlsBoys">
+                      {categoryIndex > 0 && (
+                        <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-3 sm:mb-4 md:mb-6">
+                          <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-[#F1EDE2]/40 to-transparent"></div>
+                        </div>
+                      )}
+                      <TwoColumnLayout singleTitle="Flower Girls/Boys" centerContent={true}>
+                        {(() => {
+                          // Display in pairs: [0,1], [2,3], [4,5], etc.
+                          const rows = []
+                          for (let i = 0; i < allFlowers.length; i += 2) {
+                            const left = allFlowers[i]
+                            const right = allFlowers[i + 1]
+                            rows.push(
+                              <React.Fragment key={`flower-row-${i}`}>
+                                <div key={`flower-cell-left-${i}`} className="px-2 sm:px-3 md:px-4">
+                                  {left ? <NameItem member={left} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                </div>
+                                <div key={`flower-cell-right-${i}`} className="px-2 sm:px-3 md:px-4">
+                                  {right ? <NameItem member={right} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                </div>
+                              </React.Fragment>
+                            )
+                          }
+                          return rows
+                        })()}
+                      </TwoColumnLayout>
+                    </div>
+                  )
+                }
                 
                 if (members.length === 0) return null
 
@@ -508,60 +575,6 @@ export function Entourage() {
                   return null
                 }
 
-                // Special handling for Flower Girls/Boys - combine Flower Girls and Flower Boys
-                if (category === "Flower Girls/Boys") {
-                  const flowerGirls = grouped["Flower Girls"] || []
-                  const flowerBoys = grouped["Flower Boys"] || []
-                  const allFlowers = [...flowerGirls, ...flowerBoys]
-                  
-                  if (allFlowers.length === 0) return null
-                  
-                  return (
-                    <div key="FlowerGirlsBoys">
-                      {categoryIndex > 0 && (
-                        <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-3 sm:mb-4 md:mb-6">
-                          <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-[#F1EDE2]/40 to-transparent"></div>
-                        </div>
-                      )}
-                      <TwoColumnLayout singleTitle="Flower Girls/Boys" centerContent={true}>
-                        {(() => {
-                          if (allFlowers.length <= 2) {
-                            return (
-                              <div className="col-span-full">
-                                <div className="max-w-sm mx-auto flex flex-col items-center gap-1 sm:gap-1.5">
-                                  {allFlowers.map((member, idx) => (
-                                    <NameItem key={`flower-${idx}-${member.Name}`} member={member} align="center" />
-                                  ))}
-                                </div>
-                              </div>
-                            )
-                          }
-                          const half = Math.ceil(allFlowers.length / 2)
-                          const left = allFlowers.slice(0, half)
-                          const right = allFlowers.slice(half)
-                          const maxLen = Math.max(left.length, right.length)
-                          const rows = []
-                          for (let i = 0; i < maxLen; i++) {
-                            const l = left[i]
-                            const r = right[i]
-                            rows.push(
-                              <React.Fragment key={`flower-row-${i}`}>
-                                <div key={`flower-cell-left-${i}`} className="px-2 sm:px-3 md:px-4">
-                                  {l ? <NameItem member={l} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
-                                </div>
-                                <div key={`flower-cell-right-${i}`} className="px-2 sm:px-3 md:px-4">
-                                  {r ? <NameItem member={r} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
-                                </div>
-                              </React.Fragment>
-                            )
-                          }
-                          return rows
-                        })()}
-                      </TwoColumnLayout>
-                    </div>
-                  )
-                }
-
                 // Special handling for Little Bride | Little Groom - combine into single two-column layout
                 if (category === "Little Bride" || category === "Little Groom") {
                   const littleBride = grouped["Little Bride"] || []
@@ -679,7 +692,7 @@ export function Entourage() {
               {/* Display any other categories not in the ordered list */}
               {Object.keys(grouped).filter(cat => {
                 // Exclude categories that are handled in combined sections
-                const excludedCategories = ["Flower Girls", "Flower Boys", "Little Bride", "Little Groom"]
+                const excludedCategories = ["Flower Girls", "Flower Girl", "Flower Boys", "Flower Boy", "Little Bride", "Little Groom"]
                 return !ROLE_CATEGORY_ORDER.includes(cat) && !excludedCategories.includes(cat)
               }).map((category) => {
                 const members = grouped[category]

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion } from "motion/react"
 import { Instagram, Twitter, Facebook, MapPin, Calendar, Clock, Heart, Music2 } from "lucide-react"
 import { siteConfig } from "@/content/site"
+import Image from "next/image"
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -101,6 +102,19 @@ export function Footer() {
           <div className="max-w-2xl w-full">
             {/* Save The Date Header */}
             <div className="text-center mb-4 sm:mb-6 md:mb-8">
+              {/* Monogram - white color */}
+              <div className="flex justify-center mb-3 sm:mb-4 md:mb-5">
+                <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56">
+                  <Image
+                    src="/monogram/monogram.png"
+                    alt="Monogram"
+                    fill
+                    className="object-contain brightness-0 invert"
+                    priority={false}
+                  />
+                </div>
+              </div>
+              
               {/* Top decorative dots */}
               <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
                 <div className="w-1 h-1 bg-[#B38538]/60 rounded-full" />

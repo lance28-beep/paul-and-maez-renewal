@@ -15,6 +15,7 @@ import { FAQ } from "@/components/sections/faq"
 import { SnapShare } from "@/components/sections/snap-share"
 import { Footer } from "@/components/sections/footer"
 import BackgroundMusic from "@/components/background-music"
+import Image from "next/image"
 
 const Silk = dynamic(() => import("@/components/silk"), { ssr: false })
 const GuestList = dynamic(() => import("@/components/sections/guest-list").then(mod => ({ default: mod.GuestList })), { ssr: false })
@@ -48,6 +49,17 @@ export default function Home() {
         <Registry />
         <FAQ />
         <SnapShare />
+        {/* Mobile-only full-width image */}
+        <div className="relative w-full h-screen md:hidden">
+          <Image
+            src="/decoration/image-1542369876902874.jfif"
+            alt="Wedding decoration"
+            fill
+            className="object-cover"
+            priority={false}
+            quality={90}
+          />
+        </div>
         <Footer />
       </div>
     </main>

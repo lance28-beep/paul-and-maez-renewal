@@ -37,6 +37,18 @@ export function Hero() {
         />
       </div>
 
+      {/* Decoration at top - mobile only */}
+      <div className="absolute top-0 left-0 right-0 w-full h-[25%] sm:h-[30%] pointer-events-none z-10 md:hidden">
+        <Image
+          src="/decoration/goldernnavybluedecorationlower.png"
+          alt="Decoration top"
+          fill
+          className="object-cover object-top scale-y-[-1]"
+          priority={false}
+          quality={90}
+        />
+      </div>
+
       {/* Main Content Container */}
       <div className="relative w-full min-h-screen flex flex-col items-center justify-center py-3 sm:py-6 md:py-8 lg:py-12">
         
@@ -70,7 +82,7 @@ export function Hero() {
           <p 
             className="text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.08em] mb-1 sm:mb-2 md:mb-3 leading-relaxed"
             style={{ 
-              fontFamily: '"Cormorant", serif',
+              fontFamily: '"Inter", sans-serif',
               color: '#1a1a1a',
               fontWeight: 400,
               fontStyle: 'italic'
@@ -83,7 +95,7 @@ export function Hero() {
           <p 
             className="text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.08em] mb-1 sm:mb-2 md:mb-3 leading-relaxed"
             style={{ 
-              fontFamily: '"Cormorant", serif',
+              fontFamily: '"Inter", sans-serif',
               color: '#1a1a1a',
               fontWeight: 400
             }}
@@ -95,7 +107,7 @@ export function Hero() {
           <p 
             className="text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.08em] mb-2 sm:mb-3 md:mb-4 lg:mb-5 leading-relaxed"
             style={{ 
-              fontFamily: '"Cormorant", serif',
+              fontFamily: '"Inter", sans-serif',
               color: '#1a1a1a',
               fontWeight: 400
             }}
@@ -107,7 +119,7 @@ export function Hero() {
           <h2 
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal tracking-[0.05em] sm:tracking-[0.1em] md:tracking-[0.15em] mb-2 sm:mb-3 md:mb-4 lg:mb-5 leading-tight px-1"
             style={{ 
-              fontFamily: '"Playfair Display", serif',
+              fontFamily: '"Inter", sans-serif',
               color: '#1a1a1a',
               fontWeight: 500
             }}
@@ -119,7 +131,7 @@ export function Hero() {
           <p 
             className="text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.08em] mb-1 sm:mb-2 md:mb-3 leading-relaxed"
             style={{ 
-              fontFamily: '"Cormorant", serif',
+              fontFamily: '"Inter", sans-serif',
               color: '#1a1a1a',
               fontWeight: 400
             }}
@@ -131,7 +143,7 @@ export function Hero() {
           <p 
             className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl tracking-[0.08em] sm:tracking-[0.1em] md:tracking-[0.15em] mb-2 sm:mb-3 md:mb-4 lg:mb-5 leading-tight"
             style={{ 
-              fontFamily: '"Cormorant", serif',
+              fontFamily: '"Inter", sans-serif',
               color: '#1a1a1a',
               fontWeight: 500
             }}
@@ -143,7 +155,7 @@ export function Hero() {
           <p 
             className="text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.08em] mb-2 sm:mb-3 md:mb-4 leading-relaxed px-1"
             style={{ 
-              fontFamily: '"Cormorant", serif',
+              fontFamily: '"Inter", sans-serif',
               color: '#1a1a1a',
               fontWeight: 400,
               fontStyle: 'italic'
@@ -155,7 +167,7 @@ export function Hero() {
         </div>
 
         {/* Decoration at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 w-full h-[25%] sm:h-[30%] md:h-[35%] lg:h-[40%] pointer-events-none z-10">
+        <div className="absolute bottom-0 left-0 right-0 w-full h-[25%] sm:h-[30%] md:h-[35%] lg:h-[40%] pointer-events-none z-10 md:hidden">
           <Image
             src="/decoration/goldernnavybluedecorationlower.png"
             alt="Decoration"
