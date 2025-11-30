@@ -8,6 +8,7 @@ import { Narrative } from "@/components/sections/narrative"
 import { Gallery } from "@/components/sections/gallery"
 import { Messages } from "@/components/sections/messages"
 import { Details } from "@/components/sections/details"
+import { WeddingTimeline } from "@/components/sections/wedding-timeline"
 import { Entourage } from "@/components/sections/entourage"
 import { BookOfGuests } from "@/components/sections/book-of-guests"
 import { Registry } from "@/components/sections/registry"
@@ -43,6 +44,7 @@ export default function Home() {
         <Gallery />
         <Messages />
         <Details />
+        <WeddingTimeline />
         <Entourage />
         <GuestList />
         <BookOfGuests />

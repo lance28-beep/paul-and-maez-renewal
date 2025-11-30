@@ -127,6 +127,25 @@ export function Entourage() {
     )
   }
 
+  // Helper component for category descriptions
+  const CategoryDescription = ({
+    children,
+    align = "center",
+    className = ""
+  }: {
+    children: React.ReactNode
+    align?: "left" | "center" | "right"
+    className?: string
+  }) => {
+    const textAlign =
+      align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
+    return (
+      <p className={`text-slate-600 text-[9px] sm:text-[10px] md:text-xs font-normal italic mb-1.5 sm:mb-2 md:mb-3 leading-tight ${textAlign} ${className}`}>
+        {children}
+      </p>
+    )
+  }
+
   // Helper component for name items with role title (supports alignment)
   const NameItem = ({
     member,
@@ -547,27 +566,39 @@ export function Entourage() {
                             <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-[#F1EDE2]/40 to-transparent"></div>
                           </div>
                         )}
-                        <TwoColumnLayout leftTitle="Candle Sponsors" rightTitle="Veil Sponsors">
-                          {(() => {
-                            const maxLen = Math.max(candleSponsors.length, veilSponsors.length)
-                            const rows = []
-                            for (let i = 0; i < maxLen; i++) {
-                              const left = candleSponsors[i]
-                              const right = veilSponsors[i]
-                              rows.push(
-                                <React.Fragment key={`sponsors-row-${i}`}>
-                                  <div key={`candle-cell-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {left ? <NameItem member={left} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
-                                  </div>
-                                  <div key={`veil-cell-${i}`} className="px-2 sm:px-3 md:px-4">
-                                    {right ? <NameItem member={right} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
-                                  </div>
-                                </React.Fragment>
-                              )
-                            }
-                            return rows
-                          })()}
-                        </TwoColumnLayout>
+                        <div className="mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+                          <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 mb-1.5 sm:mb-2 md:mb-3">
+                            <div className="pr-2 sm:pr-3 md:pr-4">
+                              <SectionTitle align="right">Candle Sponsors</SectionTitle>
+                              <CategoryDescription align="right">To light our path</CategoryDescription>
+                            </div>
+                            <div className="pl-2 sm:pl-3 md:pl-4">
+                              <SectionTitle align="left">Veil Sponsors</SectionTitle>
+                              <CategoryDescription align="left">to clothe as one</CategoryDescription>
+                            </div>
+                          </div>
+                          <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-0.5 sm:gap-y-1 md:gap-y-1.5">
+                            {(() => {
+                              const maxLen = Math.max(candleSponsors.length, veilSponsors.length)
+                              const rows = []
+                              for (let i = 0; i < maxLen; i++) {
+                                const left = candleSponsors[i]
+                                const right = veilSponsors[i]
+                                rows.push(
+                                  <React.Fragment key={`sponsors-row-${i}`}>
+                                    <div key={`candle-cell-${i}`} className="px-2 sm:px-3 md:px-4">
+                                      {left ? <NameItem member={left} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                    </div>
+                                    <div key={`veil-cell-${i}`} className="px-2 sm:px-3 md:px-4">
+                                      {right ? <NameItem member={right} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                    </div>
+                                  </React.Fragment>
+                                )
+                              }
+                              return rows
+                            })()}
+                          </div>
+                        </div>
                       </div>
                     )
                   }
@@ -625,66 +656,135 @@ export function Entourage() {
                         <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
                       </div>
                     )}
-                    <TwoColumnLayout singleTitle={category} centerContent={true}>
-                      {(() => {
-                        const SINGLE_COLUMN_SECTIONS = new Set([
-                          "Best Man",
-                          "Maid/Matron of Honor",
-                          "Ring Bearer",
-                          "Coin Bearer",
-                          "Bible Bearer",
-                          "Presider",
-                          "Offerer",
-                        ])
-                        // Special rule: Cord Sponsors with exactly 2 names should be displayed as two columns meeting at center
-                        if (category === "Cord Sponsors" && members.length === 2) {
-                          const left = members[0]
-                          const right = members[1]
-                          return (
-                            <>
-                              <div className="px-2 sm:px-3 md:px-4">
-                                <NameItem member={left} align="right" />
+                    {category === "Cord Sponsors" ? (
+                      <div className="mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+                        <div className="text-center mb-1.5 sm:mb-2 md:mb-3">
+                          <SectionTitle>{category}</SectionTitle>
+                          <CategoryDescription>to bind us together</CategoryDescription>
+                        </div>
+                        <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-0.5 sm:gap-y-1 md:gap-y-1.5 max-w-2xl mx-auto">
+                          {(() => {
+                            const SINGLE_COLUMN_SECTIONS = new Set([
+                              "Best Man",
+                              "Maid/Matron of Honor",
+                              "Ring Bearer",
+                              "Coin Bearer",
+                              "Bible Bearer",
+                              "Presider",
+                              "Offerer",
+                            ])
+                            // Special rule: Cord Sponsors with exactly 2 names should be displayed as two columns meeting at center
+                            if (category === "Cord Sponsors" && members.length === 2) {
+                              const left = members[0]
+                              const right = members[1]
+                              return (
+                                <>
+                                  <div className="px-2 sm:px-3 md:px-4">
+                                    <NameItem member={left} align="right" />
+                                  </div>
+                                  <div className="px-2 sm:px-3 md:px-4">
+                                    <NameItem member={right} align="left" />
+                                  </div>
+                                </>
+                              )
+                            }
+                            if (SINGLE_COLUMN_SECTIONS.has(category) || members.length <= 2) {
+                              return (
+                                <div className="col-span-full">
+                                  <div className="max-w-sm mx-auto flex flex-col items-center gap-1 sm:gap-1.5">
+                                    {members.map((member, idx) => (
+                                      <NameItem key={`${category}-${idx}-${member.Name}`} member={member} align="center" />
+                                    ))}
+                                  </div>
+                                </div>
+                              )
+                            }
+                            // Default two-column sections: render row-by-row pairs to keep alignment on small screens
+                            const half = Math.ceil(members.length / 2)
+                            const left = members.slice(0, half)
+                            const right = members.slice(half)
+                            const maxLen = Math.max(left.length, right.length)
+                            const rows = []
+                            for (let i = 0; i < maxLen; i++) {
+                              const l = left[i]
+                              const r = right[i]
+                              rows.push(
+                                <React.Fragment key={`${category}-row-${i}`}>
+                                  <div key={`${category}-cell-left-${i}`} className="px-2 sm:px-3 md:px-4">
+                                    {l ? <NameItem member={l} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  </div>
+                                  <div key={`${category}-cell-right-${i}`} className="px-2 sm:px-3 md:px-4">
+                                    {r ? <NameItem member={r} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  </div>
+                                </React.Fragment>
+                              )
+                            }
+                            return rows
+                          })()}
+                        </div>
+                      </div>
+                    ) : (
+                      <TwoColumnLayout singleTitle={category} centerContent={true}>
+                        {(() => {
+                          const SINGLE_COLUMN_SECTIONS = new Set([
+                            "Best Man",
+                            "Maid/Matron of Honor",
+                            "Ring Bearer",
+                            "Coin Bearer",
+                            "Bible Bearer",
+                            "Presider",
+                            "Offerer",
+                          ])
+                          // Special rule: Cord Sponsors with exactly 2 names should be displayed as two columns meeting at center
+                          if (category === "Cord Sponsors" && members.length === 2) {
+                            const left = members[0]
+                            const right = members[1]
+                            return (
+                              <>
+                                <div className="px-2 sm:px-3 md:px-4">
+                                  <NameItem member={left} align="right" />
+                                </div>
+                                <div className="px-2 sm:px-3 md:px-4">
+                                  <NameItem member={right} align="left" />
+                                </div>
+                              </>
+                            )
+                          }
+                          if (SINGLE_COLUMN_SECTIONS.has(category) || members.length <= 2) {
+                            return (
+                              <div className="col-span-full">
+                                <div className="max-w-sm mx-auto flex flex-col items-center gap-1 sm:gap-1.5">
+                                  {members.map((member, idx) => (
+                                    <NameItem key={`${category}-${idx}-${member.Name}`} member={member} align="center" />
+                                  ))}
+                                </div>
                               </div>
-                              <div className="px-2 sm:px-3 md:px-4">
-                                <NameItem member={right} align="left" />
-                              </div>
-                            </>
-                          )
-                        }
-                        if (SINGLE_COLUMN_SECTIONS.has(category) || members.length <= 2) {
-                          return (
-                            <div className="col-span-full">
-                              <div className="max-w-sm mx-auto flex flex-col items-center gap-1 sm:gap-1.5">
-                                {members.map((member, idx) => (
-                                  <NameItem key={`${category}-${idx}-${member.Name}`} member={member} align="center" />
-                                ))}
-                              </div>
-                            </div>
-                          )
-                        }
-                        // Default two-column sections: render row-by-row pairs to keep alignment on small screens
-                        const half = Math.ceil(members.length / 2)
-                        const left = members.slice(0, half)
-                        const right = members.slice(half)
-                        const maxLen = Math.max(left.length, right.length)
-                        const rows = []
-                        for (let i = 0; i < maxLen; i++) {
-                          const l = left[i]
-                          const r = right[i]
-                          rows.push(
-                            <React.Fragment key={`${category}-row-${i}`}>
-                              <div key={`${category}-cell-left-${i}`} className="px-2 sm:px-3 md:px-4">
-                                {l ? <NameItem member={l} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
-                              </div>
-                              <div key={`${category}-cell-right-${i}`} className="px-2 sm:px-3 md:px-4">
-                                {r ? <NameItem member={r} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
-                              </div>
-                            </React.Fragment>
-                          )
-                        }
-                        return rows
-                      })()}
-                    </TwoColumnLayout>
+                            )
+                          }
+                          // Default two-column sections: render row-by-row pairs to keep alignment on small screens
+                          const half = Math.ceil(members.length / 2)
+                          const left = members.slice(0, half)
+                          const right = members.slice(half)
+                          const maxLen = Math.max(left.length, right.length)
+                          const rows = []
+                          for (let i = 0; i < maxLen; i++) {
+                            const l = left[i]
+                            const r = right[i]
+                            rows.push(
+                              <React.Fragment key={`${category}-row-${i}`}>
+                                <div key={`${category}-cell-left-${i}`} className="px-2 sm:px-3 md:px-4">
+                                  {l ? <NameItem member={l} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                </div>
+                                <div key={`${category}-cell-right-${i}`} className="px-2 sm:px-3 md:px-4">
+                                  {r ? <NameItem member={r} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                </div>
+                              </React.Fragment>
+                            )
+                          }
+                          return rows
+                        })()}
+                      </TwoColumnLayout>
+                    )}
                   </div>
                 )
               })}

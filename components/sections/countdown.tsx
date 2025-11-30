@@ -45,7 +45,7 @@ export function Countdown() {
   return (
     <Section
       id="countdown"
-      className="relative bg-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden"
+      className="relative bg-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden z-[60]"
     >
       {/* Subtle background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -77,7 +77,7 @@ export function Countdown() {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 text-center mb-10 sm:mb-12 md:mb-16 px-4">
+      <div className="relative z-[70] text-center mb-10 sm:mb-12 md:mb-16 px-4">
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#081623] mb-4 sm:mb-6">
           Countdown to Our Special Day
         </h2>
@@ -88,7 +88,7 @@ export function Countdown() {
       </div>
 
       {/* Main countdown container */}
-      <div className="relative z-10">
+      <div className="relative z-[70]">
       
         {/* Animated Countdown Timer */}
         <div className="mt-12 sm:mt-16 md:mt-20 px-4">

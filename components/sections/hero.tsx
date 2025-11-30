@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-visible bg-white">
       {/* Corner Decorations */}
       <div className="absolute top-0 left-0 z-10 pointer-events-none">
         <Image
@@ -44,6 +44,18 @@ export function Hero() {
           alt="Decoration top"
           fill
           className="object-cover object-top scale-y-[-1]"
+          priority={false}
+          quality={90}
+        />
+      </div>
+
+      {/* Decoration at bottom - mobile only */}
+      <div className="absolute -bottom-12 sm:-bottom-16 md:-bottom-20 left-0 right-0 w-full h-[30%] sm:h-[35%] md:h-[40%] pointer-events-none z-50 md:hidden">
+        <Image
+          src="/decoration/goldernnavybluedecorationlower.png"
+          alt="Decoration bottom"
+          fill
+          className="object-cover object-bottom"
           priority={false}
           quality={90}
         />
@@ -105,7 +117,7 @@ export function Hero() {
 
           {/* as we celebrate a cherished milestone— */}
           <p 
-            className="text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.08em] mb-2 sm:mb-3 md:mb-4 lg:mb-5 leading-relaxed"
+            className="text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.08em] mb-1 sm:mb-2 md:mb-3 leading-relaxed"
             style={{ 
               fontFamily: '"Inter", sans-serif',
               color: '#1a1a1a',
@@ -164,18 +176,6 @@ export function Hero() {
             Set sail with us as we promise our forever once more.
           </p>
 
-        </div>
-
-        {/* Decoration at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 w-full h-[25%] sm:h-[30%] md:h-[35%] lg:h-[40%] pointer-events-none z-10 md:hidden">
-          <Image
-            src="/decoration/goldernnavybluedecorationlower.png"
-            alt="Decoration"
-            fill
-            className="object-cover object-bottom"
-            priority={false}
-            quality={90}
-          />
         </div>
 
         {/* CTA Buttons Overlay - Positioned above decoration */}
