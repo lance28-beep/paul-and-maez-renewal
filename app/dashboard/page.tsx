@@ -979,7 +979,7 @@ export default function DashboardPage() {
               <CheckCircle className="h-6 w-6 sm:h-8 sm:w-8 text-[#304C7E]" />
               <span className="text-2xl sm:text-3xl font-bold text-[#304C7E]">{stats.attending}</span>
             </div>
-            <p className="text-xs sm:text-sm text-[#172652]/70 font-sans">Attending</p>
+            <p className="text-xs sm:text-sm text-[#172652]/70 font-sans">Attendingg</p>
           </div>
 
           <div className="bg-[#751A2C]/10 rounded-2xl p-6 shadow-md border border-[#751A2C]/20">
