@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion } from "motion/react"
 import { Instagram, Twitter, Facebook, MapPin, Calendar, Clock, Heart, Music2 } from "lucide-react"
 import { siteConfig } from "@/content/site"
+import Image from "next/image"
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -95,12 +96,48 @@ export function Footer() {
         <div className="absolute bottom-10 right-10 w-16 h-16 sm:w-20 sm:h-20 bg-[#74A0C5]/12 rounded-full blur-xl animate-pulse" style={{ animationDelay: '0.5s' }} />
       </div>
 
+      {/* Corner Decorations */}
+      <div className="absolute top-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/corner-top-left.png"
+          alt="Corner decoration top left"
+          width={400}
+          height={400}
+          className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] h-auto"
+          priority={false}
+        />
+      </div>
+      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/corner-right-down.png"
+          alt="Corner decoration bottom right"
+          width={400}
+          height={400}
+          className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] h-auto"
+          priority={false}
+        />
+      </div>
+
       <div className="relative max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 sm:py-10 md:py-12">
         {/* Wedding date presentation - compact */}
         <motion.div className="flex justify-center px-2 sm:px-4 mb-6 sm:mb-8 md:mb-10" variants={fadeInUp}>
           <div className="max-w-2xl w-full">
             {/* Save The Date Header */}
             <div className="text-center mb-4 sm:mb-6 md:mb-8">
+              {/* Monogram at top */}
+              <div className="flex justify-center mb-4 sm:mb-6">
+                <div className="relative">
+                  <Image
+                    src="/monogram/monogram.png"
+                    alt="Monogram"
+                    width={200}
+                    height={200}
+                    className="w-40 sm:w-52 md:w-64 lg:w-80 xl:w-96 h-auto brightness-0 invert"
+                    priority={false}
+                  />
+                </div>
+              </div>
+              
               {/* Top decorative dots */}
               <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
                 <div className="w-1 h-1 bg-[#B38538]/60 rounded-full" />

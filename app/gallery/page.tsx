@@ -21,14 +21,8 @@ async function getImagesFrom(dir: string) {
 }
 
 export default async function GalleryPage() {
-  const [desktop, mobile] = await Promise.all([
-    getImagesFrom("desktop-background"),
-    getImagesFrom("mobile-background"),
-  ])
-  const images = [
-    ...desktop.map((src) => ({ src, category: "desktop" as const })),
-    ...mobile.map((src) => ({ src, category: "mobile" as const })),
-  ]
+  const gallyImages = await getImagesFrom("gally")
+  const images = gallyImages.map((src) => ({ src, category: "gally" as const }))
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#1e3a8a] via-[#3b82f6]/90 to-[#1e3a8a] relative overflow-hidden">
@@ -56,11 +50,7 @@ export default async function GalleryPage() {
             <p className="text-sm sm:text-base">
               No images found. Add files to{" "}
               <code className="px-2 py-1 bg-white/10 rounded border border-[#B38538]/30 text-[#FFFFFF]/90 text-xs sm:text-sm">
-                public/desktop-background
-              </code>{" "}
-              or{" "}
-              <code className="px-2 py-1 bg-white/10 rounded border border-[#B38538]/30 text-[#FFFFFF]/90 text-xs sm:text-sm">
-                public/mobile-background
+                public/gally
               </code>
               .
             </p>

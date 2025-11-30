@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react"
 
 type ImageItem = {
   src: string
-  category: "desktop" | "mobile"
+  category: "desktop" | "mobile" | "gally"
 }
 
 export default function MasonryGallery({ images }: { images: ImageItem[] }) {

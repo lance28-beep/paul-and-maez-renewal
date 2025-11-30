@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Loader2, Mail, MessageSquare, Heart, Sparkles, User } from "lucide-react"
+import Image from "next/image"
 
 interface Guest {
   Name: string
@@ -86,17 +87,18 @@ export function BookOfGuests() {
   return (
     <div 
       id="guests" 
-      className="relative z-[55] isolate bg-gradient-to-b from-[#081623] via-[#172652]/90 to-[#081623] py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative z-[55] isolate py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#B38538]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#B38538]/5 to-transparent" />
-        
-        {/* Decorative accent circles */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#304C7E]/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#74A0C5]/15 rounded-full blur-3xl" />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/decoration/sponsors.png"
+          alt="Book of guests background"
+          fill
+          className="object-cover object-center"
+          priority={false}
+          quality={90}
+        />
       </div>
 
       {/* Section Header - compact on mobile */}
@@ -104,9 +106,6 @@ export function BookOfGuests() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#FFFFFF] mb-2 sm:mb-3 text-balance">
           Book of Guests
         </h2>
-        <p className="text-xs sm:text-sm md:text-base text-[#FFFFFF]/90 font-sans font-light max-w-2xl mx-auto px-2 leading-relaxed">
-          See who's celebrating with us on our special day
-        </p>
       </div>
 
       {/* Guests content */}

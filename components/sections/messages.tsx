@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
 import MessageWallDisplay from "./message-wall-display"
+import Image from "next/image"
 
 interface Message {
   timestamp: string
@@ -278,24 +279,53 @@ export function Messages() {
   }, [fetchMessages])
 
   return (
-    <Section id="messages" className="relative bg-gradient-to-b from-[#1e3a8a] via-[#3b82f6]/90 to-[#1e3a8a] py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
+    <Section id="messages" className="relative bg-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Soft decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#d4af37]/3 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#d4af37]/3 to-transparent" />
+      </div>
+
+      {/* Corner Decorations */}
+      <div className="absolute top-0 left-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/corner-top-left.png"
+          alt="Corner decoration top left"
+          width={400}
+          height={400}
+          className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] h-auto"
+          priority={false}
+        />
+      </div>
+      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+        <Image
+          src="/decoration/corner-right-down.png"
+          alt="Corner decoration bottom right"
+          width={400}
+          height={400}
+          className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] h-auto"
+          priority={false}
+        />
+      </div>
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-          {/* Soft gradient overlays matching countdown section */}
-          <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#d4af37]/5 to-transparent" />
-          <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#d4af37]/5 to-transparent" />
-        </div>
         
         {/* Header Section */}
         <div className="relative z-10 text-center mb-10 sm:mb-12 md:mb-16 px-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#FFFFFF] mb-4 sm:mb-6 drop-shadow-md">
-            Love Messages
-          </h2>
+          {/* Love Messages Container */}
+          <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg mb-3 sm:mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-black">
+              Love Messages
+            </h2>
+          </div>
           
-          <p className="text-sm sm:text-base md:text-lg text-[#FFFFFF]/90 font-light max-w-xl mx-auto leading-relaxed">
-            Your messages of love and joy will be treasured forever
-          </p>
+          {/* Description Container */}
+          <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg">
+            <p className="text-sm sm:text-base md:text-lg text-black/80 font-light leading-relaxed">
+              Your messages of love and joy will be treasured forever
+            </p>
+          </div>
           
         </div>
 
@@ -311,22 +341,26 @@ export function Messages() {
 
         {/* Messages Display Section */}
         <div className="relative z-10 max-w-5xl mx-auto">
-          {/* Top corner accents */}
-          <div className="absolute -top-3 -left-3 w-4 h-4 bg-gradient-to-br from-[#B38538] via-[#74A0C5] to-[#FFFFFF] rounded-full blur-sm opacity-70" />
-          <div className="absolute -top-3 -right-3 w-4 h-4 bg-gradient-to-bl from-[#B38538] via-[#74A0C5] to-[#FFFFFF] rounded-full blur-sm opacity-70" />
           <div className="text-center mb-8 sm:mb-12">
-            <div className="relative inline-block mb-4 sm:mb-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#B38538]/20 to-[#74A0C5]/10 rounded-full blur-xl scale-150"></div>
-              <div className="relative w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#B38538] to-[#74A0C5] rounded-full flex items-center justify-center mx-auto shadow-lg">
-                <Heart className="h-6 w-6 sm:h-8 sm:w-8 text-[#FFFFFF]" />
+            {/* Messages from Loved Ones Container */}
+            <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg mb-3 sm:mb-4">
+              <div className="relative inline-block mb-3 sm:mb-4">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#B38538]/20 to-[#B38538]/10 rounded-full blur-xl scale-150"></div>
+                <div className="relative w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#B38538] to-[#d4af37] rounded-full flex items-center justify-center mx-auto shadow-lg">
+                  <Heart className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+                </div>
               </div>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-playfair font-bold text-black mb-2 sm:mb-3">
+                Messages from Loved Ones
+              </h3>
             </div>
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-playfair font-bold text-[#FFFFFF] mb-2 sm:mb-3">
-              Messages from Loved Ones
-            </h3>
-            <p className="text-sm sm:text-base md:text-lg text-[#FFFFFF]/90 font-lora max-w-2xl mx-auto px-4 leading-relaxed">
-              Read the beautiful messages shared by family and friends
-            </p>
+            
+            {/* Description Container */}
+            <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg">
+              <p className="text-sm sm:text-base md:text-lg text-black/80 font-lora leading-relaxed">
+                Read the beautiful messages shared by family and friends
+              </p>
+            </div>
           </div>
           
           <MessageWallDisplay messages={messages} loading={loading} />

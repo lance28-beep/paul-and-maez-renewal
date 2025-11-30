@@ -4,6 +4,7 @@ import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Section } from "@/components/section"
 import { siteConfig } from "@/content/site"
+import Image from "next/image"
 
 interface FAQItem {
   question: string
@@ -70,13 +71,18 @@ export function FAQ() {
   return (
     <Section
       id="faq"
-      className="relative bg-gradient-to-b from-[#1e3a8a] via-[#3b82f6]/90 to-[#1e3a8a] py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#d4af37]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#d4af37]/5 to-transparent" />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/decoration/sponsors.png"
+          alt="FAQ background"
+          fill
+          className="object-cover object-center"
+          priority={false}
+          quality={90}
+        />
       </div>
 
       {/* Section Header - compact */}

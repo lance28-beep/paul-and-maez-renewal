@@ -4,20 +4,21 @@ import { useState, useEffect, useCallback } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Section } from "@/components/section"
 import CircularGallery from "@/components/CircularGallery"
+import Image from "next/image"
 
 const galleryItems = [
-  { image: "/mobile-background/couple (1).jpg", text: "Love" },
-  { image: "/mobile-background/couple (2).jpg", text: "Forever" },
-  { image: "/mobile-background/couple (3).jpg", text: "Our Story" },
-  { image: "/mobile-background/couple (5).jpg", text: "Together" },
-  { image: "/mobile-background/couple (8).jpg", text: "Always" },
-  { image: "/mobile-background/couple (10).jpg", text: "Moments" },
-  { image: "/mobile-background/couple (15).jpg", text: "Memories" },
-  { image: "/mobile-background/couple (18).jpg", text: "Special" },
-  { image: "/mobile-background/couple (22).jpg", text: "Beautiful" },
-  { image: "/mobile-background/couple (25).jpg", text: "Joy" },
-  { image: "/mobile-background/couple (30).jpg", text: "Happiness" },
-  { image: "/mobile-background/couple (35).jpg", text: "Cherished" },
+  { image: "/gally/couple (1).JPG", text: "Love" },
+  { image: "/gally/couple (5).JPG", text: "Forever" },
+  { image: "/gally/couple (10).JPG", text: "Our Story" },
+  { image: "/gally/couple (15).JPG", text: "Together" },
+  { image: "/gally/couple (20).JPG", text: "Always" },
+  { image: "/gally/couple (25).JPG", text: "Moments" },
+  { image: "/gally/couple (30).JPG", text: "Memories" },
+  { image: "/gally/couple (35).JPG", text: "Special" },
+  { image: "/gally/couple (40).JPG", text: "Beautiful" },
+  { image: "/gally/couple (45).JPG", text: "Joy" },
+  { image: "/gally/couple (50).JPG", text: "Happiness" },
+  { image: "/gally/couple (55).JPG", text: "Cherished" },
 ]
 
 export function Gallery() {
@@ -97,28 +98,35 @@ export function Gallery() {
   return (
     <Section
       id="gallery"
-      className="relative bg-gradient-to-b from-[#081623] via-[#172652]/90 to-[#081623] py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+      className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#B38538]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#B38538]/5 to-transparent" />
-        
-        {/* Decorative accent circles */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#304C7E]/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#74A0C5]/15 rounded-full blur-3xl" />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/decoration/gallery-bg.png"
+          alt="Gallery background"
+          fill
+          className="object-cover object-center"
+          priority={false}
+          quality={90}
+        />
       </div>
 
       {/* Header - compact */}
       <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#FFFFFF] mb-2 sm:mb-3 md:mb-4 drop-shadow-md">
-          Our Moments
-        </h2>
+        {/* Our Moments Container */}
+        <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black">
+            Our Moments
+          </h2>
+        </div>
         
-        <p className="text-xs sm:text-sm md:text-base text-[#FFFFFF]/90 font-light max-w-xl mx-auto leading-relaxed">
-          Every moment, a treasured memory made eternal
-        </p>
+        {/* Every moment Container */}
+        <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg mb-3 sm:mb-4">
+          <p className="text-xs sm:text-sm md:text-base text-black/80 font-light leading-relaxed">
+            Every moment, a treasured memory made eternal
+          </p>
+        </div>
         
         {/* Decorative divider */}
         <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 md:mt-6">
@@ -140,7 +148,7 @@ export function Gallery() {
               <CircularGallery 
                 items={galleryItems}
                 bend={3}
-                textColor="#B38538"
+                textColor="#000000"
                 borderRadius={0.05}
                 scrollEase={0.02}
                 scrollSpeed={2}
@@ -151,10 +159,12 @@ export function Gallery() {
           
           {/* Helper text for interaction - compact */}
           <div className="mt-2 sm:mt-3 md:mt-4 text-center">
-            <p className="text-[10px] sm:text-xs md:text-sm text-[#FFFFFF]/70 font-light">
-              <span className="hidden sm:inline">Scroll or drag to explore our gallery</span>
-              <span className="sm:hidden">Swipe to explore our gallery</span>
-            </p>
+            <div className="inline-block bg-white/90 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-2.5 shadow-md">
+              <p className="text-[10px] sm:text-xs md:text-sm text-black/80 font-light">
+                <span className="hidden sm:inline">Scroll or drag to explore our gallery</span>
+                <span className="sm:hidden">Swipe to explore our gallery</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>

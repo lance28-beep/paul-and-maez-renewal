@@ -3,6 +3,7 @@
 import React from "react"
 import { useEffect, useMemo, useState } from "react"
 import { Section } from "@/components/section"
+import Image from "next/image"
 
 interface PrincipalSponsor {
   MalePrincipalSponsor: string
@@ -75,13 +76,18 @@ export function PrincipalSponsors() {
   return (
     <Section
       id="sponsors"
-      className="relative bg-gradient-to-b from-[#1e3a8a] via-[#3b82f6]/90 to-[#1e3a8a] py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 overflow-hidden"
+      className="relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 overflow-hidden"
     >
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft gradient overlays */}
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#d4af37]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#d4af37]/5 to-transparent" />
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/decoration/sponsors.png"
+          alt="Sponsors background"
+          fill
+          className="object-cover object-center"
+          priority={false}
+          quality={90}
+        />
       </div>
 
       {/* Section Header - compact on mobile */}
@@ -89,9 +95,6 @@ export function PrincipalSponsors() {
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#FFFFFF] mb-1.5 sm:mb-2 md:mb-3 drop-shadow-md">
           Principal Sponsors
         </h2>
-        <p className="text-xs sm:text-sm md:text-base text-[#FFFFFF]/90 font-light max-w-xl mx-auto leading-relaxed">
-          Our Beloved Godparents
-        </p>
       </div>
 
       {/* Sponsors content - compact padding on mobile */}
