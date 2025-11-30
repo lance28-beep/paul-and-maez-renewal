@@ -12,7 +12,7 @@ const galleryItems = [
   { image: "/gally/couple (10).JPG", text: "Our Story" },
   { image: "/gally/couple (15).JPG", text: "Together" },
   { image: "/gally/couple (20).JPG", text: "Always" },
-  { image: "/gally/couple (25).JPG", text: "Moments" },
+  { image: "/gally/couple (44).JPG", text: "Moments" },
   { image: "/gally/couple (30).JPG", text: "Memories" },
   { image: "/gally/couple (35).JPG", text: "Special" },
   { image: "/gally/couple (40).JPG", text: "Beautiful" },
@@ -96,43 +96,51 @@ export function Gallery() {
   }
 
   return (
-    <Section
-      id="gallery"
-      className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
-    >
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/decoration/gallery-bg.png"
-          alt="Gallery background"
-          fill
-          className="object-cover object-center"
-          priority={false}
-          quality={90}
-        />
-      </div>
+    <div style={{ backgroundColor: "#081623" }}>
+      <Section
+        id="gallery"
+        className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+      >
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0 opacity-25">
+          <Image
+            src="/decoration/galleryNewBG.jpg"
+            alt="Gallery background"
+            fill
+            className="object-cover object-center"
+            priority={false}
+            quality={90}
+          />
+        </div>
+
+        {/* Enhanced gradient overlays for depth */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {/* Base gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#081623]/85 via-[#081623]/80 to-[#081623]/85" />
+          
+          {/* Soft accent gradients */}
+          <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#D4AF37]/8 to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#D4AF37]/8 to-transparent" />
+          
+          {/* Subtle side gradients */}
+          <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-[#172652]/20 to-transparent" />
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#172652]/20 to-transparent" />
+        </div>
 
       {/* Header - compact */}
       <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4">
         {/* Our Moments Container */}
-        <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg mb-3 sm:mb-4">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-black">
+        <div className="inline-block bg-white/10 backdrop-blur-sm border border-[#D4AF37]/30 rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">
             Our Moments
           </h2>
         </div>
         
-        {/* Every moment Container */}
-        <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg mb-3 sm:mb-4">
-          <p className="text-xs sm:text-sm md:text-base text-black/80 font-light leading-relaxed">
-            Every moment, a treasured memory made eternal
-          </p>
-        </div>
-        
         {/* Decorative divider */}
         <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 md:mt-6">
-          <div className="h-px w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent to-[#B38538]/50" />
-          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#B38538] rounded-full" />
-          <div className="h-px w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent to-[#B38538]/50" />
+          <div className="h-px w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent to-[#D4AF37]/50" />
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#D4AF37] rounded-full" />
+          <div className="h-px w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent to-[#D4AF37]/50" />
         </div>
       </div>
 
@@ -141,14 +149,14 @@ export function Gallery() {
         <div className="max-w-7xl mx-auto">
           {isLoading ? (
             <div className="flex items-center justify-center h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px]">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border-[3px] border-[#74A0C5]/30 border-t-[#B38538] rounded-full animate-spin" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border-[3px] border-[#D4AF37]/30 border-t-[#D4AF37] rounded-full animate-spin" />
             </div>
           ) : (
             <div className="h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] relative">
               <CircularGallery 
                 items={galleryItems}
                 bend={3}
-                textColor="#000000"
+                textColor="#D4AF37"
                 borderRadius={0.05}
                 scrollEase={0.02}
                 scrollSpeed={2}
@@ -159,8 +167,8 @@ export function Gallery() {
           
           {/* Helper text for interaction - compact */}
           <div className="mt-2 sm:mt-3 md:mt-4 text-center">
-            <div className="inline-block bg-white/90 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-2.5 shadow-md">
-              <p className="text-[10px] sm:text-xs md:text-sm text-black/80 font-light">
+            <div className="inline-block bg-white/10 backdrop-blur-sm border border-[#D4AF37]/30 rounded-full px-4 sm:px-6 py-2 sm:py-2.5 shadow-md">
+              <p className="text-[10px] sm:text-xs md:text-sm text-white font-light">
                 <span className="hidden sm:inline">Scroll or drag to explore our gallery</span>
                 <span className="sm:hidden">Swipe to explore our gallery</span>
               </p>
@@ -331,31 +339,32 @@ export function Gallery() {
           href="/gallery"
           className="group inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-2.5 md:py-3 rounded-lg sm:rounded-xl font-semibold sm:font-bold transition-all duration-300 uppercase tracking-wider text-[10px] sm:text-xs md:text-sm whitespace-nowrap relative overflow-hidden border-2 backdrop-blur-sm"
           style={{
-            backgroundColor: "rgba(179, 133, 56, 0.95)",
-            borderColor: "rgba(48, 76, 126, 0.4)",
+            backgroundColor: "rgba(212, 175, 55, 0.95)",
+            borderColor: "rgba(212, 175, 55, 0.6)",
             color: "#FFFFFF",
-            boxShadow: "0 4px 20px rgba(179, 133, 56, 0.4), 0 2px 6px rgba(0,0,0,0.3)",
+            boxShadow: "0 4px 20px rgba(212, 175, 55, 0.4), 0 2px 6px rgba(0,0,0,0.3)",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#B38538";
-            e.currentTarget.style.borderColor = "rgba(116, 160, 197, 0.7)";
+            e.currentTarget.style.backgroundColor = "#D4AF37";
+            e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.9)";
             e.currentTarget.style.transform = "translateY(-2px) scale(1.02)";
-            e.currentTarget.style.boxShadow = "0 8px 30px rgba(179, 133, 56, 0.6), 0 4px 12px rgba(0,0,0,0.4), 0 0 20px rgba(116, 160, 197, 0.3)";
+            e.currentTarget.style.boxShadow = "0 8px 30px rgba(212, 175, 55, 0.6), 0 4px 12px rgba(0,0,0,0.4), 0 0 20px rgba(212, 175, 55, 0.4)";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "rgba(179, 133, 56, 0.95)";
-            e.currentTarget.style.borderColor = "rgba(48, 76, 126, 0.4)";
+            e.currentTarget.style.backgroundColor = "rgba(212, 175, 55, 0.95)";
+            e.currentTarget.style.borderColor = "rgba(212, 175, 55, 0.6)";
             e.currentTarget.style.transform = "translateY(0) scale(1)";
-            e.currentTarget.style.boxShadow = "0 4px 20px rgba(179, 133, 56, 0.4), 0 2px 6px rgba(0,0,0,0.3)";
+            e.currentTarget.style.boxShadow = "0 4px 20px rgba(212, 175, 55, 0.4), 0 2px 6px rgba(0,0,0,0.3)";
           }}
         >
           <span className="relative z-10">View Full Gallery</span>
-          <ChevronRight size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
+          <ChevronRight size={14} className="sm:w-4 sm:h-4 md:w-5 md:h-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1 text-white" />
           <div 
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#74A0C5]/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full"
           />
         </a>
       </div>
-    </Section>
+      </Section>
+    </div>
   )
 }

@@ -11,28 +11,37 @@ interface EntourageMember {
   Email: string
 }
 
+interface PrincipalSponsor {
+  MalePrincipalSponsor: string
+  FemalePrincipalSponsor: string
+}
+
 const ROLE_CATEGORY_ORDER = [
   "The Couple",
   "Parents of the Groom",
   "Parents of the Bride",
+  "Principal Sponsor",
   "Best Man",
   "Maid/Matron of Honor",
+  "Groomsmen",
+  "Bridesmaids",
   "Candle Sponsors",
   "Veil Sponsors",
   "Cord Sponsors",
-  "Groomsmen",
-  "Bridesmaids",
-  "Flower Girls",
   "Ring/Coin Bearers",
+  "Flower Girls/Boys",
+  "Little Bride",
+  "Little Groom",
+  "Offerer",
 ]
 
 export function Entourage() {
   const [entourage, setEntourage] = useState<EntourageMember[]>([])
+  const [principalSponsors, setPrincipalSponsors] = useState<PrincipalSponsor[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   const fetchEntourage = async () => {
-    setIsLoading(true)
     try {
       const response = await fetch("/api/entourage", { cache: "no-store" })
       if (!response.ok) {
@@ -43,18 +52,37 @@ export function Entourage() {
     } catch (error: any) {
       console.error("Failed to load entourage:", error)
       setError(error?.message || "Failed to load entourage")
-    } finally {
-      setIsLoading(false)
     }
   }
 
+  const fetchPrincipalSponsors = async () => {
+    try {
+      const response = await fetch("/api/principal-sponsor", { cache: "no-store" })
+      if (!response.ok) {
+        throw new Error("Failed to fetch principal sponsors")
+      }
+      const data: PrincipalSponsor[] = await response.json()
+      setPrincipalSponsors(data)
+    } catch (error: any) {
+      console.error("Failed to load principal sponsors:", error)
+      // Don't set error state for sponsors, just log it
+    }
+  }
+
+  const fetchAll = async () => {
+    setIsLoading(true)
+    setError(null)
+    await Promise.all([fetchEntourage(), fetchPrincipalSponsors()])
+    setIsLoading(false)
+  }
+
   useEffect(() => {
-    fetchEntourage()
+    fetchAll()
 
     // Set up auto-refresh listener for dashboard updates
     const handleEntourageUpdate = () => {
       setTimeout(() => {
-        fetchEntourage()
+        fetchAll()
       }, 1000)
     }
 
@@ -125,6 +153,19 @@ export function Entourage() {
     )
   }
 
+  // Helper component for principal sponsor names (simpler, no role title)
+  const SponsorNameItem = ({ name, align = "center" }: { name: string, align?: "left" | "center" | "right" }) => {
+    const containerAlign =
+      align === "right" ? "items-end" : align === "left" ? "items-start" : "items-center"
+    const textAlign =
+      align === "right" ? "text-right" : align === "left" ? "text-left" : "text-center"
+    return (
+      <div className={`flex flex-col ${containerAlign} justify-center py-0.5 sm:py-1 md:py-1.5 w-full`}>
+        <p className={`text-slate-700 text-[10px] sm:text-xs md:text-sm font-medium leading-snug break-words ${textAlign}`}>{name}</p>
+      </div>
+    )
+  }
+
   // Helper component for two-column layout wrapper
   const TwoColumnLayout = ({ 
     children, 
@@ -176,7 +217,7 @@ export function Entourage() {
       {/* Section Header - compact on mobile */}
       <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 px-3 sm:px-4">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#FFFFFF] mb-1.5 sm:mb-2 md:mb-3 text-balance">
-          Wedding Entourage
+          Entourage
         </h2>
       </div>
 
@@ -200,14 +241,14 @@ export function Entourage() {
                 <div className="text-center">
                   <p className="text-red-500 font-serif text-sm sm:text-base md:text-lg mb-2">{error}</p>
                   <button
-                    onClick={fetchEntourage}
+                    onClick={fetchAll}
                     className="text-[#AFC8E6] hover:text-[#D8B0B0] font-serif underline text-xs sm:text-sm"
                   >
                     Try again
                   </button>
                 </div>
               </div>
-            ) : entourage.length === 0 ? (
+            ) : entourage.length === 0 && principalSponsors.length === 0 ? (
               <div className="text-center py-16 sm:py-20 md:py-24">
                 <Users className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 text-[#F1EDE2]/50 mx-auto mb-3 sm:mb-4" />
                 <p className="text-[#AFC8E6] font-serif text-sm sm:text-base md:text-lg">No entourage members yet</p>
@@ -216,6 +257,43 @@ export function Entourage() {
             <>
               {ROLE_CATEGORY_ORDER.map((category, categoryIndex) => {
                 const members = grouped[category] || []
+                
+                // Special handling for Principal Sponsor (comes from different API)
+                if (category === "Principal Sponsor") {
+                  const sponsorPairs = principalSponsors.filter(s => s.MalePrincipalSponsor || s.FemalePrincipalSponsor)
+                  
+                  if (sponsorPairs.length === 0) return null
+                  
+                  return (
+                    <div key="PrincipalSponsor">
+                      {categoryIndex > 0 && (
+                        <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-3 sm:mb-4 md:mb-6">
+                          <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-[#F1EDE2]/40 to-transparent"></div>
+                        </div>
+                      )}
+                      <TwoColumnLayout singleTitle="Principal Sponsors" centerContent={true}>
+                        {sponsorPairs.map((pair, idx) => (
+                          <React.Fragment key={`sponsor-pair-${idx}`}>
+                            <div key={`male-sponsor-${idx}-${pair.MalePrincipalSponsor || 'empty'}`} className="px-2 sm:px-3 md:px-4">
+                              {pair.MalePrincipalSponsor ? (
+                                <SponsorNameItem name={pair.MalePrincipalSponsor} align="right" />
+                              ) : (
+                                <div className="py-0.5 sm:py-1 md:py-1.5" />
+                              )}
+                            </div>
+                            <div key={`female-sponsor-${idx}-${pair.FemalePrincipalSponsor || 'empty'}`} className="px-2 sm:px-3 md:px-4">
+                              {pair.FemalePrincipalSponsor ? (
+                                <SponsorNameItem name={pair.FemalePrincipalSponsor} align="left" />
+                              ) : (
+                                <div className="py-0.5 sm:py-1 md:py-1.5" />
+                              )}
+                            </div>
+                          </React.Fragment>
+                        ))}
+                      </TwoColumnLayout>
+                    </div>
+                  )
+                }
                 
                 if (members.length === 0) return null
 
@@ -430,6 +508,102 @@ export function Entourage() {
                   return null
                 }
 
+                // Special handling for Flower Girls/Boys - combine Flower Girls and Flower Boys
+                if (category === "Flower Girls/Boys") {
+                  const flowerGirls = grouped["Flower Girls"] || []
+                  const flowerBoys = grouped["Flower Boys"] || []
+                  const allFlowers = [...flowerGirls, ...flowerBoys]
+                  
+                  if (allFlowers.length === 0) return null
+                  
+                  return (
+                    <div key="FlowerGirlsBoys">
+                      {categoryIndex > 0 && (
+                        <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-3 sm:mb-4 md:mb-6">
+                          <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-[#F1EDE2]/40 to-transparent"></div>
+                        </div>
+                      )}
+                      <TwoColumnLayout singleTitle="Flower Girls/Boys" centerContent={true}>
+                        {(() => {
+                          if (allFlowers.length <= 2) {
+                            return (
+                              <div className="col-span-full">
+                                <div className="max-w-sm mx-auto flex flex-col items-center gap-1 sm:gap-1.5">
+                                  {allFlowers.map((member, idx) => (
+                                    <NameItem key={`flower-${idx}-${member.Name}`} member={member} align="center" />
+                                  ))}
+                                </div>
+                              </div>
+                            )
+                          }
+                          const half = Math.ceil(allFlowers.length / 2)
+                          const left = allFlowers.slice(0, half)
+                          const right = allFlowers.slice(half)
+                          const maxLen = Math.max(left.length, right.length)
+                          const rows = []
+                          for (let i = 0; i < maxLen; i++) {
+                            const l = left[i]
+                            const r = right[i]
+                            rows.push(
+                              <React.Fragment key={`flower-row-${i}`}>
+                                <div key={`flower-cell-left-${i}`} className="px-2 sm:px-3 md:px-4">
+                                  {l ? <NameItem member={l} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                </div>
+                                <div key={`flower-cell-right-${i}`} className="px-2 sm:px-3 md:px-4">
+                                  {r ? <NameItem member={r} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                </div>
+                              </React.Fragment>
+                            )
+                          }
+                          return rows
+                        })()}
+                      </TwoColumnLayout>
+                    </div>
+                  )
+                }
+
+                // Special handling for Little Bride | Little Groom - combine into single two-column layout
+                if (category === "Little Bride" || category === "Little Groom") {
+                  const littleBride = grouped["Little Bride"] || []
+                  const littleGroom = grouped["Little Groom"] || []
+                  
+                  // Only render once (when processing "Little Groom")
+                  if (category === "Little Groom") {
+                    return (
+                      <div key="LittleCouple">
+                        {categoryIndex > 0 && (
+                          <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-3 sm:mb-4 md:mb-6">
+                            <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-[#F1EDE2]/40 to-transparent"></div>
+                          </div>
+                        )}
+                        <TwoColumnLayout leftTitle="Little Groom" rightTitle="Little Bride">
+                          {(() => {
+                            const maxLen = Math.max(littleGroom.length, littleBride.length)
+                            const rows = []
+                            for (let i = 0; i < maxLen; i++) {
+                              const left = littleGroom[i]
+                              const right = littleBride[i]
+                              rows.push(
+                                <React.Fragment key={`little-couple-row-${i}`}>
+                                  <div key={`little-groom-cell-${i}`} className="px-2 sm:px-3 md:px-4">
+                                    {left ? <NameItem member={left} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  </div>
+                                  <div key={`little-bride-cell-${i}`} className="px-2 sm:px-3 md:px-4">
+                                    {right ? <NameItem member={right} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
+                                  </div>
+                                </React.Fragment>
+                              )
+                            }
+                            return rows
+                          })()}
+                        </TwoColumnLayout>
+                      </div>
+                    )
+                  }
+                  // Skip rendering for "Little Bride" since it's already rendered above
+                  return null
+                }
+
                 // Default: single title, centered content
                 return (
                   <div key={category}>
@@ -447,6 +621,7 @@ export function Entourage() {
                           "Coin Bearer",
                           "Bible Bearer",
                           "Presider",
+                          "Offerer",
                         ])
                         // Special rule: Cord Sponsors with exactly 2 names should be displayed as two columns meeting at center
                         if (category === "Cord Sponsors" && members.length === 2) {
@@ -502,7 +677,11 @@ export function Entourage() {
               })}
               
               {/* Display any other categories not in the ordered list */}
-              {Object.keys(grouped).filter(cat => !ROLE_CATEGORY_ORDER.includes(cat)).map((category) => {
+              {Object.keys(grouped).filter(cat => {
+                // Exclude categories that are handled in combined sections
+                const excludedCategories = ["Flower Girls", "Flower Boys", "Little Bride", "Little Groom"]
+                return !ROLE_CATEGORY_ORDER.includes(cat) && !excludedCategories.includes(cat)
+              }).map((category) => {
                 const members = grouped[category]
                 return (
                   <div key={category}>

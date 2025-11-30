@@ -55,14 +55,19 @@ export function Details() {
   }
 
   return (
-    <Section id="details" className="relative bg-gradient-to-b from-[#081623] via-[#172652]/90 to-[#081623] py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#B38538]/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#B38538]/5 to-transparent" />
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#304C7E]/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#74A0C5]/15 rounded-full blur-3xl" />
-      </div>
+    <div style={{ backgroundColor: "#081623" }}>
+      <Section id="details" className="relative py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0 opacity-30">
+          <Image
+            src="/decoration/galleryNewBG.jpg"
+            alt="Details background"
+            fill
+            className="object-cover object-center"
+            priority={false}
+            quality={90}
+          />
+        </div>
 
       {/* Header */}
       <div className="relative z-10 text-center mb-6 sm:mb-8 md:mb-12 px-3 sm:px-4">
@@ -644,6 +649,7 @@ export function Details() {
           </div>
         </div>
       )}
-    </Section>
+      </Section>
+    </div>
   )
 }

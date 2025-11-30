@@ -88,17 +88,32 @@ export function BookOfGuests() {
     <div 
       id="guests" 
       className="relative z-[55] isolate py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden"
+      style={{ backgroundColor: "#081623" }}
     >
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 opacity-25">
         <Image
-          src="/decoration/sponsors.png"
+          src="/decoration/galleryNewBG.jpg"
           alt="Book of guests background"
           fill
           className="object-cover object-center"
           priority={false}
           quality={90}
         />
+      </div>
+
+      {/* Enhanced gradient overlays for depth */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {/* Base gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#081623]/85 via-[#081623]/80 to-[#081623]/85" />
+        
+        {/* Soft accent gradients */}
+        <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#D4AF37]/8 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#D4AF37]/8 to-transparent" />
+        
+        {/* Subtle side gradients */}
+        <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-[#172652]/20 to-transparent" />
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#172652]/20 to-transparent" />
       </div>
 
       {/* Section Header - compact on mobile */}

@@ -320,13 +320,6 @@ export function Messages() {
             </h2>
           </div>
           
-          {/* Description Container */}
-          <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg">
-            <p className="text-sm sm:text-base md:text-lg text-black/80 font-light leading-relaxed">
-              Your messages of love and joy will be treasured forever
-            </p>
-          </div>
-          
         </div>
 
         {/* Form Section */}
