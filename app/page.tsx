@@ -54,7 +54,7 @@ export default function Home() {
         {/* Mobile-only full-width image */}
         <div className="relative w-full h-screen md:hidden">
           <Image
-            src="/decoration/image-1542369876902874.jfif"
+            src="/decoration/footer.png"
             alt="Wedding decoration"
             fill
             className="object-cover"
