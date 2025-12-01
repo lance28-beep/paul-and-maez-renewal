@@ -128,7 +128,7 @@ export function SnapShare() {
                 {/* Two squares on top, one landscape below */}
                 <div className="grid grid-cols-2 gap-1.5 sm:gap-2 md:gap-3">
                   <motion.div className="relative aspect-square rounded-lg sm:rounded-xl overflow-hidden shadow-md ring-1 ring-[#B38538]/40" whileHover={{ scale: 1.03 }} transition={{ duration: 0.25 }}>
-                    <Image src="/gally/couple (75).JPG" alt="Favorite moment 1" fill className="object-cover" />
+                    <Image src="/gally/couple (18).JPG" alt="Favorite moment 1" fill className="object-cover" />
                   </motion.div>
                   <motion.div className="relative aspect-square rounded-lg sm:rounded-xl overflow-hidden shadow-md ring-1 ring-[#B38538]/40" whileHover={{ scale: 1.03 }} transition={{ duration: 0.25 }}>
                     <Image src="/gally/couple (79).JPG" alt="Favorite moment 2" fill className="object-cover" />

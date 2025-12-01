@@ -75,15 +75,15 @@ export default function Home() {
           <div
             className={`absolute inset-0 flex flex-col items-center justify-center px-10 text-center ${lavishlyYours.className}`}
           >
-            <p className="text-6xl sm:text-7xl leading-tight sm:leading-tight tracking-wide">
+            <p className="text-7xl sm:text-8xl leading-tight sm:leading-tight tracking-wide">
               <span className="block mb-1">
-                <span className="inline-block text-7xl sm:text-8xl">W</span>
-                <span className="inline-block align-middle ml-1 text-5xl sm:text-6xl">e</span>
+                <span className="inline-block text-8xl sm:text-9xl">W</span>
+                <span className="inline-block align-middle ml-1 text-6xl sm:text-7xl">e</span>
               </span>
-              <span className="block mb-1">can&apos;t</span>
-              <span className="block mb-1">wait to see</span>
-              <span className="block mb-1">you</span>
-              <span className="block">there!</span>
+              <span className="block mb-1 text-7xl sm:text-8xl">can&apos;t</span>
+              <span className="block mb-1 text-7xl sm:text-8xl">wait to see</span>
+              <span className="block mb-1 text-7xl sm:text-8xl">you</span>
+              <span className="block text-7xl sm:text-8xl">there!</span>
             </p>
           </div>
         </div>

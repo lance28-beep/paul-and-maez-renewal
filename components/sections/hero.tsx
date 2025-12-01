@@ -112,7 +112,7 @@ export function Hero() {
               fontWeight: 400
             }}
           >
-            as we celebrate a cherished milestone—
+            as we celebrate a cherished milestone
           </p>
 
           {/* The Renewal of Our Wedding Vows */}
