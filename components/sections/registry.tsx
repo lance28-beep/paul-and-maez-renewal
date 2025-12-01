@@ -17,7 +17,7 @@ export function Registry() {
       {/* Content - compact */}
       <div className="relative z-10 max-w-3xl mx-auto px-2 sm:px-3 md:px-4">
         {/* Single unified card */}
-        <div className="relative bg-white/95 backdrop-blur-sm border border-[#B38538]/30 rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg sm:shadow-xl overflow-hidden">
+        <div className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden max-w-5xl mx-auto">
           {/* Inner gold border */}
           <div className="absolute inset-1.5 sm:inset-2 md:inset-3 border border-[#B38538] rounded-md sm:rounded-lg md:rounded-xl pointer-events-none" />
           
@@ -30,7 +30,7 @@ export function Registry() {
                   {/* Decorative top border */}
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-12 sm:w-20 md:w-24 h-px bg-gradient-to-r from-transparent via-[#B38538]/50 to-transparent"></div>
                   
-                  <div className="space-y-2 sm:space-y-2.5">
+                  <div className="mb-2 sm:mb-3 bg-white/50 rounded-lg p-2 sm:p-2.5 border border-[#B38538]/20">
                     <p className="text-sm sm:text-base md:text-lg text-[#081623] leading-relaxed font-sans">
                       Your love, laughter, and presence on our special day is all we ask for. Gifts are not expected, but if you feel inclined, we are grateful for your kindness.
                     </p>

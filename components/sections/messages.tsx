@@ -90,8 +90,8 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
       <div className="absolute -bottom-3 -right-3 w-8 h-8 bg-[#74A0C5]/15 rounded-full blur-md animate-pulse sm:w-12 sm:h-12 sm:-bottom-4 sm:-right-4"></div>
       <div className="absolute top-1/2 -left-1 w-4 h-4 bg-[#304C7E]/15 rounded-full blur-sm animate-pulse sm:w-6 sm:h-6 sm:-left-2"></div>
       
-      <Card className={`relative w-full border-2 border-[#304C7E]/40 shadow-[0_8px_32px_rgba(23,38,82,0.25)] bg-[#FFFFFF]/90 backdrop-blur-md transition-all duration-500 group overflow-hidden rounded-xl sm:rounded-2xl ${
-        isFocused ? 'scale-[1.01] border-[#B38538]/60 bg-[#FFFFFF]/95' : 'hover:bg-[#FFFFFF]/95'
+      <Card className={`relative w-full bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group overflow-hidden ${
+        isFocused ? 'scale-[1.01] border-[#B38538]/70' : ''
       } ${isSubmitted ? 'animate-bounce' : ''}`}>
         {/* Glass effect overlays */}
         <div className="absolute inset-0 bg-[#172652]/5"></div>

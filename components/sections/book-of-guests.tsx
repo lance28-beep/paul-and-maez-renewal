@@ -127,7 +127,7 @@ export function BookOfGuests() {
         {/* Stats card - compact */}
         <div className="text-center mb-4 sm:mb-5 md:mb-6 px-2 sm:px-3 md:px-4">
           <div className="relative max-w-3xl mx-auto">
-            <div className="relative bg-white/95 backdrop-blur-sm border border-[#B38538]/30 rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg sm:shadow-xl overflow-hidden">
+            <div className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden">
               {/* Inner gold border */}
               <div className="absolute inset-1.5 sm:inset-2 md:inset-3 border border-[#B38538] rounded-md sm:rounded-lg md:rounded-xl pointer-events-none" />
               
@@ -156,7 +156,7 @@ export function BookOfGuests() {
 
         {/* Guest list container - compact */}
         <div className="max-w-5xl mx-auto px-2 sm:px-3 md:px-4 lg:px-6">
-          <div className="relative bg-white/95 backdrop-blur-sm border border-[#B38538]/30 rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-lg sm:shadow-xl overflow-hidden">
+          <div className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden">
             {/* Inner gold border */}
             <div className="absolute inset-1.5 sm:inset-2 md:inset-3 border border-[#B38538] rounded-md sm:rounded-lg md:rounded-xl pointer-events-none" />
             

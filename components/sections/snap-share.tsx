@@ -104,7 +104,7 @@ export function SnapShare() {
             whileHover={{ y: -2 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg border border-[#B38538]/30">
+            <div className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden">
               <div className="text-center">
                 <div className="space-y-2 sm:space-y-2.5 mb-3 sm:mb-4">
                   {hashtags.map((hashtag) => (
@@ -131,10 +131,10 @@ export function SnapShare() {
                     <Image src="/gally/couple (18).JPG" alt="Favorite moment 1" fill className="object-cover" />
                   </motion.div>
                   <motion.div className="relative aspect-square rounded-lg sm:rounded-xl overflow-hidden shadow-md ring-1 ring-[#B38538]/40" whileHover={{ scale: 1.03 }} transition={{ duration: 0.25 }}>
-                    <Image src="/gally/couple (79).JPG" alt="Favorite moment 2" fill className="object-cover" />
+                    <Image src="/gally/couple (72).JPG" alt="Favorite moment 2" fill className="object-cover" />
                   </motion.div>
                   <motion.div className="relative col-span-2 aspect-[3/2] rounded-lg sm:rounded-xl overflow-hidden shadow-md ring-1 ring-[#B38538]/40" whileHover={{ scale: 1.02 }} transition={{ duration: 0.25 }}>
-                    <Image src="/desktop-background/couple (4).jpg" alt="Favorite moment 3" fill className="object-cover" />
+                    <Image src="/gallery/Screenshot 2025-12-01 230338.png" alt="Favorite moment 3" fill className="object-cover" />
                   </motion.div>
                 </div>
                 <p className="font-sans text-[#081623] text-[9px] sm:text-[10px] md:text-xs text-center mt-2 sm:mt-3 px-2">Share your photos using our hashtag to be featured here!</p>
@@ -144,7 +144,7 @@ export function SnapShare() {
 
           <motion.div className="space-y-3 sm:space-y-4" variants={fadeInUp}>
             <div className="p-[1.5px] rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br from-[#B38538]/50 via-[#74A0C5]/35 to-[#B38538]/50">
-              <div className="bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg border border-[#B38538]/30 text-center">
+              <div className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden text-center">
                 <h4 className="font-serif text-sm sm:text-base md:text-lg font-bold text-[#081623] mb-2 sm:mb-3 md:mb-4">Share Our Website</h4>
                 <div className="mx-auto inline-flex flex-col items-center bg-white p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl md:rounded-2xl shadow-md border border-[#081623]/10 mb-3 sm:mb-4">
                   <div className="mb-2 sm:mb-3 p-1.5 sm:p-2 rounded-lg sm:rounded-xl bg-gradient-to-br from-[#B38538]/40 via-[#FFFFFF]/40 to-white ring-1 ring-[#B38538]/40">
@@ -165,7 +165,7 @@ export function SnapShare() {
               </div>
             </div>
 
-            <div className="bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-6 shadow-lg border border-[#B38538]/30">
+            <div className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden">
               <h5 className="font-serif text-sm sm:text-base md:text-lg font-bold text-[#081623] mb-2 sm:mb-3 md:mb-4 text-center">Share on Social Media</h5>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 md:gap-3">
                 <button
@@ -202,7 +202,7 @@ export function SnapShare() {
         </motion.div>
 
         <motion.div className="text-center mt-4 sm:mt-6 md:mt-8" variants={fadeInUp}>
-          <div className="bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 shadow-lg border border-[#B38538]/30 max-w-3xl mx-auto">
+          <div className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 lg:p-8 shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden max-w-3xl mx-auto">
             <p className="font-sans text-[#081623] text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed mb-2 sm:mb-3 md:mb-4">
               We are so excited to celebrate our love with you! See you on our special day!
             </p>

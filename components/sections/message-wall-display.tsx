@@ -38,7 +38,10 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
     return (
       <div className="space-y-3 sm:space-y-4 md:space-y-5">
         {[1, 2, 3].map((i) => (
-          <Card key={i} className="border-2 border-[#B38538]/20 shadow-lg bg-white/95 backdrop-blur-sm rounded-xl hover:shadow-xl transition-shadow duration-300">
+          <Card
+            key={i}
+            className="relative border border-[#B38538]/50 bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-[0_4px_16px_rgba(8,22,35,0.2)] hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 group overflow-hidden"
+          >
             <CardContent className="p-4 sm:p-6 md:p-8">
               <div className="flex justify-between items-start mb-3 sm:mb-4">
                 <div className="flex items-center space-x-3 sm:space-x-4">
@@ -60,7 +63,7 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
   if (messages.length === 0) {
     return (
       <div className="text-center py-8 sm:py-14 px-3">
-        <div className="inline-block bg-white/90 backdrop-blur-sm rounded-xl px-6 sm:px-8 md:px-10 py-6 sm:py-8 shadow-lg">
+        <div className="inline-block bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl px-6 sm:px-8 md:px-10 py-6 sm:py-8 shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700">
           <div className="relative inline-block mb-4 sm:mb-6">
             <div className="absolute inset-0 bg-gradient-to-r from-[#B38538]/20 to-[#B38538]/10 rounded-full blur-xl scale-150 animate-pulse"></div>
             <div className="relative w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#B38538] to-[#d4af37] rounded-full flex items-center justify-center mx-auto shadow-lg">
@@ -90,7 +93,7 @@ export default function MessageWallDisplay({ messages, loading }: MessageWallDis
       {visibleMessages.map((msg, index) => (
         <Card
           key={index}
-          className={`relative border-2 border-[#B38538]/20 shadow-lg bg-white/95 backdrop-blur-sm hover:shadow-xl hover:border-[#B38538]/40 transition-all duration-500 group overflow-hidden transform rounded-xl ${
+          className={`relative border border-[#B38538]/50 bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md shadow-[0_4px_16px_rgba(8,22,35,0.2)] hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 group overflow-hidden transform rounded-2xl sm:rounded-3xl ${
             isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
           }`}
           style={{
