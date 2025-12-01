@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://paul-and-maez-renewal.vercel.app/desktop-background/couple (10).jpg",
+        url: "https://paul-and-maez-renewal.vercel.app/monogram/patholder.JPG",
         width: 1200,
         height: 630,
         alt: "Paul & Maez Renewal of Vows - December 22, 2025",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     title: "Paul & Maez Renewal of Vows Invitation",
     description:
       "You're invited to the renewal of vows of Paul & Maez! December 22, 2025. RSVP, view our gallery, and leave a message! #PaulAndMaezRenewal",
-    images: ["https://paul-and-maez-renewal.vercel.app/desktop-background/couple (10).jpg"],
+    images: ["https://paul-and-maez-renewal.vercel.app/monogram/patholder.JPG"],
     creator: "@paulandmaez",
   },
   robots: {
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
           },
         },
       ],
-      image: ["https://paul-and-maez-renewal.vercel.app/desktop-background/couple (10).jpg"],
+      image: ["https://paul-and-maez-renewal.vercel.app/monogram/patholder.JPG"],
       description:
         "You're invited to the renewal of vows of Paul & Maez! Join us on December 22, 2025 at Kangara Gymnasium, Carigara, Leyte. RSVP, read our love story, view our gallery, and leave a message for the couple.",
       organizer: {
