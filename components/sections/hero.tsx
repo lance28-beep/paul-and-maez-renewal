@@ -78,18 +78,6 @@ export function Hero() {
             />
           </div>
 
-          {/* PAUL AND MAEZ */}
-          <h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] mb-2 sm:mb-3 md:mb-4 lg:mb-5 leading-tight"
-            style={{ 
-              fontFamily: '"Playfair Display", serif',
-              color: '#1a1a1a',
-              fontWeight: 500
-            }}
-          >
-            PAUL <span style={{ fontFamily: '"Montez", cursive', fontStyle: 'normal', color: '#B38538', fontSize: '0.6em' }}>and</span> MAEZ
-          </h1>
-
           {/* With hearts full of love, */}
           <p 
             className="text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.03em] sm:tracking-[0.05em] md:tracking-[0.08em] mb-1 sm:mb-2 md:mb-3 leading-relaxed"

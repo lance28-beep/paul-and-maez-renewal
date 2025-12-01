@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion } from "motion/react"
 import { Instagram, Facebook, Twitter, Share2, Copy, Check, Download } from "lucide-react"
 import { Section } from "@/components/section"
+import { SectionLabel } from "@/components/section-label"
 import { QRCodeCanvas } from "qrcode.react"
 
 export function SnapShare() {
@@ -90,13 +91,10 @@ export function SnapShare() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#FFFFFF] mb-2 sm:mb-3 text-balance">
-            Snap & Share
-          </h2>
+          <SectionLabel text="Snap & Share" tone="light" className="mb-4 sm:mb-5 mx-auto max-w-3xl" />
           <p className="font-sans text-[#FFFFFF]/90 max-w-2xl mx-auto leading-relaxed text-xs sm:text-sm md:text-base px-2 sm:px-4">
             Help us document our special day by sharing moments using our official hashtags.
           </p>
-          <div className="mx-auto mt-2 sm:mt-3 h-px w-16 sm:w-20 md:w-24 bg-gradient-to-r from-transparent via-[#B38538]/60 to-transparent" />
         </motion.div>
 
         <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6" variants={staggerChildren} initial="initial" animate="animate">
@@ -130,10 +128,10 @@ export function SnapShare() {
                 {/* Two squares on top, one landscape below */}
                 <div className="grid grid-cols-2 gap-1.5 sm:gap-2 md:gap-3">
                   <motion.div className="relative aspect-square rounded-lg sm:rounded-xl overflow-hidden shadow-md ring-1 ring-[#B38538]/40" whileHover={{ scale: 1.03 }} transition={{ duration: 0.25 }}>
-                    <Image src="/mobile-background/couple (19).jpg" alt="Favorite moment 1" fill className="object-cover" />
+                    <Image src="/gally/couple (75).JPG" alt="Favorite moment 1" fill className="object-cover" />
                   </motion.div>
                   <motion.div className="relative aspect-square rounded-lg sm:rounded-xl overflow-hidden shadow-md ring-1 ring-[#B38538]/40" whileHover={{ scale: 1.03 }} transition={{ duration: 0.25 }}>
-                    <Image src="/mobile-background/couple (15).jpg" alt="Favorite moment 2" fill className="object-cover" />
+                    <Image src="/gally/couple (79).JPG" alt="Favorite moment 2" fill className="object-cover" />
                   </motion.div>
                   <motion.div className="relative col-span-2 aspect-[3/2] rounded-lg sm:rounded-xl overflow-hidden shadow-md ring-1 ring-[#B38538]/40" whileHover={{ scale: 1.02 }} transition={{ duration: 0.25 }}>
                     <Image src="/desktop-background/couple (4).jpg" alt="Favorite moment 3" fill className="object-cover" />

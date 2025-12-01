@@ -1,15 +1,14 @@
 "use client"
 
 import { Section } from "@/components/section"
+import { SectionLabel } from "@/components/section-label"
 
 export function Registry() {
   return (
     <Section id="registry" className="relative bg-transparent py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
       {/* Section Header - compact */}
       <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#FFFFFF] mb-2 sm:mb-3 text-balance">
-          Note or Gift
-        </h2>
+        <SectionLabel text="Note or Gift" tone="light" className="mb-4 sm:mb-5 mx-auto max-w-3xl" />
         <p className="text-xs sm:text-sm md:text-base text-[#FFFFFF]/90 font-sans font-light max-w-2xl mx-auto px-2 leading-relaxed">
           Your love, laughter, and presence on our special day is all we ask for
         </p>

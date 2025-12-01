@@ -3,6 +3,7 @@
 import React from "react"
 import { useState, useEffect, useMemo } from "react"
 import { Loader2, Users } from "lucide-react"
+import { SectionLabel } from "@/components/section-label"
 
 interface EntourageMember {
   Name: string
@@ -14,6 +15,12 @@ interface EntourageMember {
 interface PrincipalSponsor {
   MalePrincipalSponsor: string
   FemalePrincipalSponsor: string
+}
+
+const CATEGORY_DESCRIPTIONS: Record<string, string> = {
+  "Cord Sponsors": "to bind us together",
+  "Candle Sponsors": "to light our path",
+  "Veil Sponsors": "to clothe as one",
 }
 
 const ROLE_CATEGORY_ORDER = [
@@ -30,7 +37,9 @@ const ROLE_CATEGORY_ORDER = [
   "Cord Sponsors",
   "Little Bride",
   "Little Groom",
-  "Ring/Coin Bearers",
+  "Ring Bearer",
+  "Coin Bearer",
+  "Bible Bearer",
   "Flower Girls/Boys",
   "Offerer",
 ]
@@ -235,15 +244,13 @@ export function Entourage() {
 
       {/* Section Header - compact on mobile */}
       <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 px-3 sm:px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#FFFFFF] mb-1.5 sm:mb-2 md:mb-3 text-balance">
-          Entourage
-        </h2>
+        <SectionLabel text="Entourage" tone="light" className="mb-0 mx-auto max-w-3xl" />
       </div>
 
       {/* Central Card Container - compact padding on mobile */}
       <div className="relative z-10 max-w-5xl mx-auto px-2 sm:px-3 md:px-4 lg:px-6">
-        {/* White card with elegant border */}
-        <div className="relative bg-white/85 backdrop-blur-sm border border-[#F1EDE2]/30 rounded-lg sm:rounded-xl md:rounded-2xl shadow-xl sm:shadow-2xl overflow-hidden">
+        {/* White card with elegant border (solid white, no transparency) */}
+        <div className="relative bg-white border border-[#F1EDE2]/30 rounded-lg sm:rounded-xl md:rounded-2xl shadow-xl sm:shadow-2xl overflow-hidden">
           {/* Inner gold border - thinner on mobile */}
           <div className="absolute inset-1.5 sm:inset-2 md:inset-3 border border-[#F1EDE2] rounded-md sm:rounded-lg md:rounded-xl pointer-events-none" />
           {/* Card content - compact padding on mobile */}
@@ -552,59 +559,7 @@ export function Entourage() {
                 }
 
                 // Special handling for Candle/Veil Sponsors sections - combine into single two-column layout
-                if (category === "Candle Sponsors" || category === "Veil Sponsors") {
-                  // Get both sponsor groups
-                  const candleSponsors = grouped["Candle Sponsors"] || []
-                  const veilSponsors = grouped["Veil Sponsors"] || []
-                  
-                  // Only render once (when processing "Candle Sponsors")
-                  if (category === "Candle Sponsors") {
-                    return (
-                      <div key="Sponsors">
-                        {categoryIndex > 0 && (
-                          <div className="flex justify-center py-2 sm:py-2.5 md:py-3 mb-3 sm:mb-4 md:mb-6">
-                            <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-[#F1EDE2]/40 to-transparent"></div>
-                          </div>
-                        )}
-                        <div className="mb-3 sm:mb-4 md:mb-6 lg:mb-8">
-                          <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 mb-1.5 sm:mb-2 md:mb-3">
-                            <div className="pr-2 sm:pr-3 md:pr-4">
-                              <SectionTitle align="right">Candle Sponsors</SectionTitle>
-                              <CategoryDescription align="right">To light our path</CategoryDescription>
-                            </div>
-                            <div className="pl-2 sm:pl-3 md:pl-4">
-                              <SectionTitle align="left">Veil Sponsors</SectionTitle>
-                              <CategoryDescription align="left">to clothe as one</CategoryDescription>
-                            </div>
-                          </div>
-                          <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-0.5 sm:gap-y-1 md:gap-y-1.5">
-                            {(() => {
-                              const maxLen = Math.max(candleSponsors.length, veilSponsors.length)
-                              const rows = []
-                              for (let i = 0; i < maxLen; i++) {
-                                const left = candleSponsors[i]
-                                const right = veilSponsors[i]
-                                rows.push(
-                                  <React.Fragment key={`sponsors-row-${i}`}>
-                                    <div key={`candle-cell-${i}`} className="px-2 sm:px-3 md:px-4">
-                                      {left ? <NameItem member={left} align="right" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
-                                    </div>
-                                    <div key={`veil-cell-${i}`} className="px-2 sm:px-3 md:px-4">
-                                      {right ? <NameItem member={right} align="left" /> : <div className="py-0.5 sm:py-1 md:py-1.5" />}
-                                    </div>
-                                  </React.Fragment>
-                                )
-                              }
-                              return rows
-                            })()}
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  }
-                  // Skip rendering for "Veil Sponsors" since it's already rendered above
-                  return null
-                }
+                // (Now handled like Cord Sponsors in the default block below)
 
                 // Special handling for Little Bride | Little Groom - combine into single two-column layout
                 if (category === "Little Bride" || category === "Little Groom") {
@@ -656,11 +611,13 @@ export function Entourage() {
                         <div className="h-px w-24 sm:w-32 md:w-40 bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-transparent"></div>
                       </div>
                     )}
-                    {category === "Cord Sponsors" ? (
+                    {["Cord Sponsors", "Candle Sponsors", "Veil Sponsors"].includes(category) ? (
                       <div className="mb-3 sm:mb-4 md:mb-6 lg:mb-8">
                         <div className="text-center mb-1.5 sm:mb-2 md:mb-3">
                           <SectionTitle>{category}</SectionTitle>
-                          <CategoryDescription>to bind us together</CategoryDescription>
+                          {CATEGORY_DESCRIPTIONS[category] && (
+                            <CategoryDescription>{CATEGORY_DESCRIPTIONS[category]}</CategoryDescription>
+                          )}
                         </div>
                         <div className="grid grid-cols-1 min-[350px]:grid-cols-2 gap-x-1.5 sm:gap-x-2 md:gap-x-3 gap-y-0.5 sm:gap-y-1 md:gap-y-1.5 max-w-2xl mx-auto">
                           {(() => {
@@ -673,8 +630,8 @@ export function Entourage() {
                               "Presider",
                               "Offerer",
                             ])
-                            // Special rule: Cord Sponsors with exactly 2 names should be displayed as two columns meeting at center
-                            if (category === "Cord Sponsors" && members.length === 2) {
+                            // Special rule: Sponsors with exactly 2 names should be displayed as two columns meeting at center
+                            if (members.length === 2) {
                               const left = members[0]
                               const right = members[1]
                               return (

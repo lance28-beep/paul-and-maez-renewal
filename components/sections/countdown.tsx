@@ -1,6 +1,7 @@
 "use client"
 
 import { Section } from "@/components/section"
+import { SectionLabel } from "@/components/section-label"
 import { useState, useEffect } from "react"
 import Counter from "@/components/Counter"
 import Image from "next/image"
@@ -49,42 +50,49 @@ export function Countdown() {
     >
       {/* Subtle background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft decorative elements */}
         <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#d4af37]/3 to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#d4af37]/3 to-transparent" />
       </div>
 
-      {/* Corner Decorations */}
-      <div className="absolute top-0 left-0 z-10 pointer-events-none">
+      {/* Decorative overlays (match hero implementation) */}
+      <div className="absolute top-0 left-0 right-0 w-full h-[25%] sm:h-[30%] pointer-events-none z-10">
         <Image
-          src="/decoration/corner-top-left.png"
-          alt="Corner decoration top left"
-          width={400}
-          height={400}
-          className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] h-auto"
+          src="/decoration/goldernnavybluedecorationlower.png"
+          alt="Countdown top decoration"
+          fill
+          className="object-cover object-top scale-y-[-1]"
           priority={false}
+          quality={90}
         />
       </div>
-      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+      <div className="absolute -bottom-12 sm:-bottom-16 md:-bottom-20 left-0 right-0 w-full h-[30%] sm:h-[35%] md:h-[40%] pointer-events-none z-10">
         <Image
-          src="/decoration/corner-right-down.png"
-          alt="Corner decoration bottom right"
-          width={400}
-          height={400}
-          className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] h-auto"
+          src="/decoration/goldernnavybluedecorationlower.png"
+          alt="Countdown bottom decoration"
+          fill
+          className="object-cover object-bottom"
           priority={false}
+          quality={90}
         />
       </div>
 
       {/* Header */}
-      <div className="relative z-[70] text-center mb-10 sm:mb-12 md:mb-16 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#081623] mb-4 sm:mb-6">
-          Countdown to Our Special Day
-        </h2>
-        
-        <p className="text-sm sm:text-base md:text-lg text-[#081623]/80 font-light max-w-xl mx-auto leading-relaxed">
-          Every moment brings us closer to forever
-        </p>
+      <div className="relative z-[70] text-center mb-8 sm:mb-10 md:mb-12 px-4">
+        <div className="inline-flex flex-col gap-2 sm:gap-3 items-center">
+          <div className="inline-block bg-white/95 backdrop-blur-sm border border-[#B38538]/40 rounded-full px-3.5 sm:px-7 md:px-9 py-2.5 sm:py-3.5 shadow-lg shadow-[#B38538]/20">
+            <SectionLabel
+              text="Countdown to Our Special Day"
+              textClassName="text-black text-2xl sm:text-3xl md:text-4xl"
+              className="mb-0"
+              showDivider={false}
+            />
+          </div>
+          <div className="inline-block bg-white/85 backdrop-blur-sm border border-[#B38538]/25 rounded-full px-4 sm:px-6 md:px-7 py-2.5 sm:py-3.5 shadow-sm shadow-[#081623]/10 max-w-xl">
+            <p className="text-xs sm:text-sm text-[#081623] font-light leading-relaxed tracking-wide">
+              Every moment brings us closer to forever
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Main countdown container */}

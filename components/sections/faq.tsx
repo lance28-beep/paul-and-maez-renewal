@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Section } from "@/components/section"
+import { SectionLabel } from "@/components/section-label"
 import { siteConfig } from "@/content/site"
 import Image from "next/image"
 
@@ -102,9 +103,7 @@ export function FAQ() {
 
       {/* Section Header - compact */}
       <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#FFFFFF] mb-2 sm:mb-3 text-balance">
-          Frequently Asked Questions
-        </h2>
+        <SectionLabel text="Frequently Asked Questions" tone="light" className="mb-4 sm:mb-5 max-w-4xl mx-auto" />
         <p className="text-xs sm:text-sm md:text-base text-[#FFFFFF]/90 font-sans font-light max-w-2xl mx-auto px-2 leading-relaxed">
           Everything you need to know
         </p>

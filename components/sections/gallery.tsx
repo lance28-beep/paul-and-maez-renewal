@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Section } from "@/components/section"
+import { SectionLabel } from "@/components/section-label"
 import CircularGallery from "@/components/CircularGallery"
 import Image from "next/image"
 
@@ -129,19 +130,7 @@ export function Gallery() {
 
       {/* Header - compact */}
       <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4">
-        {/* Our Moments Container */}
-        <div className="inline-block bg-white/10 backdrop-blur-sm border border-[#D4AF37]/30 rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg mb-3 sm:mb-4">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white">
-            Our Moments
-          </h2>
-        </div>
-        
-        {/* Decorative divider */}
-        <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 md:mt-6">
-          <div className="h-px w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent to-[#D4AF37]/50" />
-          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#D4AF37] rounded-full" />
-          <div className="h-px w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent to-[#D4AF37]/50" />
-        </div>
+        <SectionLabel text="Our Moments" tone="light" className="mb-0" showDivider={false} />
       </div>
 
       {/* Circular Gallery Content - compact */}

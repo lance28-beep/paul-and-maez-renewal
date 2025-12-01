@@ -2,6 +2,7 @@
 
 import { Suspense } from "react"
 import dynamic from "next/dynamic"
+import { IntroImage } from "@/components/sections/intro-image"
 import { Hero } from "@/components/sections/hero"
 import { Countdown } from "@/components/sections/countdown"
 import { Narrative } from "@/components/sections/narrative"
@@ -17,6 +18,12 @@ import { SnapShare } from "@/components/sections/snap-share"
 import { Footer } from "@/components/sections/footer"
 import BackgroundMusic from "@/components/background-music"
 import Image from "next/image"
+import { Lavishly_Yours } from "next/font/google"
+
+const lavishlyYours = Lavishly_Yours({
+  subsets: ["latin"],
+  weight: "400",
+})
 
 const Silk = dynamic(() => import("@/components/silk"), { ssr: false })
 const GuestList = dynamic(() => import("@/components/sections/guest-list").then(mod => ({ default: mod.GuestList })), { ssr: false })
@@ -38,6 +45,7 @@ export default function Home() {
 
       {/* Content */}
       <div className="relative z-10">
+        <IntroImage />
         <Hero />
         <Countdown />
         {/* <Narrative /> */}
@@ -51,16 +59,33 @@ export default function Home() {
         <Registry />
         <FAQ />
         <SnapShare />
-        {/* Mobile-only full-width image */}
-        <div className="relative w-full h-screen md:hidden">
+        {/* Mobile-only full-width image with dim overlay and message */}
+        <div className="relative w-full h-screen md:hidden text-white">
           <Image
-            src="/decoration/footer.png"
+            src="/gally/couple (14).JPG"
             alt="Wedding decoration"
             fill
             className="object-cover"
             priority={false}
             quality={90}
           />
+          {/* Dim overlay */}
+          <div className="absolute inset-0 bg-black/40" />
+          {/* Overlay text */}
+          <div
+            className={`absolute inset-0 flex flex-col items-center justify-center px-10 text-center ${lavishlyYours.className}`}
+          >
+            <p className="text-6xl sm:text-7xl leading-tight sm:leading-tight tracking-wide">
+              <span className="block mb-1">
+                <span className="inline-block text-7xl sm:text-8xl">W</span>
+                <span className="inline-block align-middle ml-1 text-5xl sm:text-6xl">e</span>
+              </span>
+              <span className="block mb-1">can&apos;t</span>
+              <span className="block mb-1">wait to see</span>
+              <span className="block mb-1">you</span>
+              <span className="block">there!</span>
+            </p>
+          </div>
         </div>
         <Footer />
       </div>

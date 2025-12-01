@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react"
 import { Section } from "@/components/section"
+import { SectionLabel } from "@/components/section-label"
 import { Button } from "@/components/ui/button"
 import { Heart, CheckCircle, AlertCircle, User, Users, MessageSquare } from "lucide-react"
 // import { siteContent } from "@/lib/content"
@@ -99,15 +100,16 @@ export function RSVP({ onSuccess }: RSVPFormProps) {
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Enhanced Header */}
         <div className="text-center mb-12 md:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-[#FFF6E7] mb-4 md:mb-6 text-balance drop-shadow-lg relative overflow-visible">
-            <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-br from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7]">RSVP</span>
-            <span className="absolute -inset-x-3 -inset-y-4 text-[#BB8A3D]/25 blur-[28px] -z-10 select-none pointer-events-none">RSVP</span>
-          </h2>
-          {/* Decorative divider under title */}
-          <div className="flex items-center justify-center gap-3 md:gap-4 mb-2 md:mb-4">
-            <div className="w-10 sm:w-16 h-px bg-gradient-to-r from-transparent via-[#BB8A3D]/60 to-[#CDAC77]/30" />
-            <div className="w-2 h-2 rounded-full bg-[#BB8A3D]" />
-            <div className="w-10 sm:w-16 h-px bg-gradient-to-l from-transparent via-[#BB8A3D]/60 to-[#CDAC77]/30" />
+          <div className="relative inline-block">
+            <span className="absolute -inset-x-3 -inset-y-4 text-[#BB8A3D]/25 blur-[28px] -z-10 select-none pointer-events-none">
+              RSVP
+            </span>
+            <SectionLabel
+              text="RSVP"
+              tone="light"
+              textClassName="bg-clip-text text-transparent bg-gradient-to-br from-[#BB8A3D] via-[#CDAC77] to-[#FFF6E7]"
+              className="mb-4 md:mb-6"
+            />
           </div>
 
           {/* Elegant Card */}

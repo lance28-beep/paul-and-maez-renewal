@@ -3,6 +3,7 @@
 import { useRef, useState, useCallback, useEffect } from "react"
 import { MessageCircle, Heart, Sparkles, Send } from "lucide-react"
 import { Section } from "@/components/section"
+import { SectionLabel } from "@/components/section-label"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -282,44 +283,52 @@ export function Messages() {
     <Section id="messages" className="relative bg-white py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
       {/* Subtle background elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Soft decorative elements */}
         <div className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-[#d4af37]/3 to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-[#d4af37]/3 to-transparent" />
       </div>
 
-      {/* Corner Decorations */}
-      <div className="absolute top-0 left-0 z-10 pointer-events-none">
+      {/* Decorative overlays (match hero implementation) */}
+      <div className="absolute top-0 left-0 right-0 w-full h-[25%] sm:h-[30%] pointer-events-none z-10">
         <Image
-          src="/decoration/corner-top-left.png"
-          alt="Corner decoration top left"
-          width={400}
-          height={400}
-          className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] h-auto"
+          src="/decoration/goldernnavybluedecorationlower.png"
+          alt="Messages top decoration"
+          fill
+          className="object-cover object-top scale-y-[-1]"
           priority={false}
+          quality={90}
         />
       </div>
-      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+      <div className="absolute -bottom-12 sm:-bottom-16 md:-bottom-20 left-0 right-0 w-full h-[30%] sm:h-[35%] md:h-[40%] pointer-events-none z-10">
         <Image
-          src="/decoration/corner-right-down.png"
-          alt="Corner decoration bottom right"
-          width={400}
-          height={400}
-          className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] h-auto"
+          src="/decoration/goldernnavybluedecorationlower.png"
+          alt="Messages bottom decoration"
+          fill
+          className="object-cover object-bottom"
           priority={false}
+          quality={90}
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="relative z-10 text-center mb-10 sm:mb-12 md:mb-16 px-4">
+        <div className="relative z-10 text-center mb-8 sm:mb-10 md:mb-12 px-4">
           {/* Love Messages Container */}
-          <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg mb-3 sm:mb-4">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-black">
-              Love Messages
-            </h2>
+          <div className="inline-flex flex-col gap-2 sm:gap-3 items-center">
+            <div className="inline-block bg-white/95 backdrop-blur-sm border border-[#B38538]/30 rounded-full px-4 sm:px-7 md:px-9 py-2.5 sm:py-3.5 shadow-lg shadow-[#B38538]/20">
+              <SectionLabel
+                text="Love Messages"
+                  textClassName="text-black text-2xl sm:text-3xl md:text-4xl"
+                className="mb-0"
+                showDivider={false}
+              />
+            </div>
+            <div className="inline-block bg-white/85 backdrop-blur-sm border border-[#B38538]/20 rounded-full px-4 sm:px-6 py-2.5 shadow-sm shadow-[#081623]/10">
+                <p className="text-[11px] sm:text-xs text-[#081623]/80 font-light leading-relaxed tracking-wide">
+                Share a heartfelt note to celebrate Paul & Maez
+              </p>
+            </div>
           </div>
-          
         </div>
 
         {/* Form Section */}
@@ -334,28 +343,19 @@ export function Messages() {
 
         {/* Messages Display Section */}
         <div className="relative z-10 max-w-5xl mx-auto">
-          <div className="text-center mb-8 sm:mb-12">
-            {/* Messages from Loved Ones Container */}
-            <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg mb-3 sm:mb-4">
-              <div className="relative inline-block mb-3 sm:mb-4">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#B38538]/20 to-[#B38538]/10 rounded-full blur-xl scale-150"></div>
-                <div className="relative w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-[#B38538] to-[#d4af37] rounded-full flex items-center justify-center mx-auto shadow-lg">
-                  <Heart className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
-                </div>
-              </div>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-playfair font-bold text-black mb-2 sm:mb-3">
-                Messages from Loved Ones
-              </h3>
-            </div>
-            
-            {/* Description Container */}
-            <div className="inline-block bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 shadow-lg">
-              <p className="text-sm sm:text-base md:text-lg text-black/80 font-lora leading-relaxed">
-                Read the beautiful messages shared by family and friends
-              </p>
-            </div>
+          <div className="text-center mb-6 sm:mb-8">
+            <SectionLabel
+              as="h3"
+              text="Messages from Loved Ones"
+              textClassName="text-black text-2xl sm:text-3xl md:text-4xl"
+              className="mb-2 sm:mb-3"
+              showDivider={false}
+            />
+            <p className="text-xs sm:text-sm md:text-base text-black font-light leading-relaxed">
+              Read the beautiful messages shared by family and friends
+            </p>
           </div>
-          
+
           <MessageWallDisplay messages={messages} loading={loading} />
         </div>
 

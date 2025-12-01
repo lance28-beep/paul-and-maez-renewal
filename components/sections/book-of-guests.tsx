@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Loader2, Mail, MessageSquare, Heart, Sparkles, User } from "lucide-react"
 import Image from "next/image"
+import { SectionLabel } from "@/components/section-label"
 
 interface Guest {
   Name: string
@@ -118,9 +119,7 @@ export function BookOfGuests() {
 
       {/* Section Header - compact on mobile */}
       <div className="relative z-10 text-center mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold text-[#FFFFFF] mb-2 sm:mb-3 text-balance">
-          Book of Guests
-        </h2>
+        <SectionLabel text="Book of Guests" tone="light" className="mb-0 mx-auto max-w-3xl" />
       </div>
 
       {/* Guests content */}

@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -180,6 +181,12 @@ html {
 /* Anton font class */
 .anton-regular {
   font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.imperial-script-regular {
+  font-family: "Imperial Script", cursive;
   font-weight: 400;
   font-style: normal;
 }

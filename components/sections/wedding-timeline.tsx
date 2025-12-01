@@ -3,6 +3,7 @@
 import type { JSX } from "react"
 import Image from "next/image"
 import { Section } from "@/components/section"
+import { SectionLabel } from "@/components/section-label"
 import { Camera, Sparkles, Utensils } from "lucide-react"
 
 interface TimelineEvent {
@@ -37,25 +38,25 @@ const timelineEvents: TimelineEvent[] = [
 export function WeddingTimeline() {
   return (
     <Section id="wedding-timeline" className="relative overflow-hidden bg-white py-12 sm:py-16 md:py-20 lg:py-24">
-      {/* Corner Decorations */}
-      <div className="absolute top-0 left-0 z-10 pointer-events-none">
+      {/* Decorative overlays (match hero implementation) */}
+      <div className="absolute top-0 left-0 right-0 w-full h-[25%] sm:h-[30%] pointer-events-none z-10">
         <Image
-          src="/decoration/corner-top-left.png"
-          alt="Corner decoration top left"
-          width={400}
-          height={400}
-          className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] h-auto"
+          src="/decoration/goldernnavybluedecorationlower.png"
+          alt="Wedding timeline top decoration"
+          fill
+          className="object-cover object-top scale-y-[-1]"
           priority={false}
+          quality={90}
         />
       </div>
-      <div className="absolute bottom-0 right-0 z-10 pointer-events-none">
+      <div className="absolute -bottom-12 sm:-bottom-16 md:-bottom-20 left-0 right-0 w-full h-[30%] sm:h-[35%] md:h-[40%] pointer-events-none z-10">
         <Image
-          src="/decoration/corner-right-down.png"
-          alt="Corner decoration bottom right"
-          width={400}
-          height={400}
-          className="w-48 sm:w-64 md:w-80 lg:w-96 xl:w-[28rem] h-auto"
+          src="/decoration/goldernnavybluedecorationlower.png"
+          alt="Wedding timeline bottom decoration"
+          fill
+          className="object-cover object-bottom"
           priority={false}
+          quality={90}
         />
       </div>
 
@@ -75,31 +76,26 @@ export function WeddingTimeline() {
 
       {/* Header Section */}
       <div className="relative z-10 text-center mb-8 sm:mb-12 md:mb-16 px-4">
-        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-          <div className="w-12 sm:w-16 md:w-20 h-px bg-[#081623]/30" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#B38538]" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#B38538]/70" />
-          <div className="w-1.5 h-1.5 rounded-full bg-[#B38538]/50" />
-          <div className="w-12 sm:w-16 md:w-20 h-px bg-[#081623]/30" />
+        <div className="inline-flex flex-col gap-2 sm:gap-3 items-center">
+          <div className="inline-block bg-white/95 backdrop-blur-sm border border-[#B38538]/40 rounded-full px-3.5 sm:px-7 md:px-9 py-2.5 sm:py-3.5 shadow-lg shadow-[#B38538]/20">
+            <SectionLabel
+              text="Wedding Timeline"
+              textClassName="text-black text-2xl sm:text-3xl md:text-4xl"
+              className="mb-0"
+              showDivider={false}
+            />
+          </div>
+          <div className="inline-block bg-white/85 backdrop-blur-sm border border-[#B38538]/25 rounded-full px-4 sm:px-6 md:px-7 py-2.5 sm:py-3 shadow-sm shadow-[#081623]/10 max-w-xl">
+            <p
+              className="text-xs sm:text-sm md:text-base text-[#081623]/80 font-light leading-relaxed tracking-wide"
+              style={{
+                fontFamily: '"Inter", sans-serif',
+              }}
+            >
+              A glimpse of the moments we'll share
+            </p>
+          </div>
         </div>
-        <h2 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-3 sm:mb-4"
-          style={{ 
-            fontFamily: '"Playfair Display", serif',
-            color: '#081623',
-            fontWeight: 500
-          }}
-        >
-          Wedding Timeline
-        </h2>
-        <p 
-          className="text-sm sm:text-base md:text-lg text-[#081623]/75 font-light max-w-lg mx-auto leading-relaxed"
-          style={{ 
-            fontFamily: '"Inter", sans-serif',
-          }}
-        >
-          A glimpse of the moments we'll share
-        </p>
       </div>
 
       {/* Timeline Container */}

@@ -1,6 +1,7 @@
 "use client"
 
 import { Section } from "@/components/section"
+import { SectionLabel } from "@/components/section-label"
 import { siteConfig } from "@/content/site"
 import { Clock, Utensils, Car, Shirt, Copy, Check, Navigation, Heart, X, MapPin, Sparkles, Camera } from "lucide-react"
 import { useState, useEffect } from "react"
@@ -71,36 +72,23 @@ export function Details() {
 
       {/* Header */}
       <div className="relative z-10 text-center mb-6 sm:mb-8 md:mb-12 px-3 sm:px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-[#FFFFFF] mb-2 sm:mb-3 md:mb-4 drop-shadow-md">
-          Event Details
-        </h2>
-        
+        <SectionLabel text="Event Details" tone="light" className="mb-4 sm:mb-5 md:mb-6 mx-auto max-w-3xl" />
         <p className="text-xs sm:text-sm md:text-base text-[#FFFFFF]/90 font-light max-w-xl mx-auto leading-relaxed">
           Everything you need to know about our special day
         </p>
-        
-        {/* Decorative divider */}
-        <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-4 md:mt-6">
-          <div className="h-px w-8 sm:w-12 md:w-16 bg-gradient-to-r from-transparent to-[#B38538]/50" />
-          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#B38538] rounded-full" />
-          <div className="h-px w-8 sm:w-12 md:w-16 bg-gradient-to-l from-transparent to-[#B38538]/50" />
-        </div>
       </div>
 
       {/* Pre-wedding Makeup Location */}
       <div className="relative z-10 mb-4 sm:mb-6 md:mb-8 px-3 sm:px-4">
         <div 
-          className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden max-w-5xl mx-auto"
+          className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 shadow-lg sm:shadow-xl border border-[#B38538]/30 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden max-w-5xl mx-auto"
           onMouseEnter={() => setHoveredCard('prewedding')}
           onMouseLeave={() => setHoveredCard(null)}
         >
-          {/* Simplified decorative elements */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B38538]/15 via-[#74A0C5]/10 to-transparent rounded-full blur-2xl opacity-30" />
-          
           {/* Header with icon and title */}
           <div className="flex items-start sm:items-center justify-between mb-2 sm:mb-3 gap-2 relative z-10">
             <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
-              <div className="bg-gradient-to-br from-[#B38538]/30 via-[#74A0C5]/20 to-[#B38538]/30 p-1.5 sm:p-2 rounded-xl flex-shrink-0">
+              <div className="bg-[#74A0C5]/20 p-1.5 sm:p-2 rounded-xl flex-shrink-0">
                 <Sparkles className="text-[#081623] w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
               </div>
               <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#081623] truncate">Pre-wedding Prep</h3>
@@ -181,15 +169,13 @@ export function Details() {
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 md:mb-12 px-3 sm:px-4">
         {/* Ceremony */}
         <div 
-          className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden"
+          className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 shadow-lg sm:shadow-xl border border-[#B38538]/30 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden"
           onMouseEnter={() => setHoveredCard('ceremony')}
           onMouseLeave={() => setHoveredCard(null)}
         >
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B38538]/15 via-[#74A0C5]/10 to-transparent rounded-full blur-2xl opacity-30" />
-          
           <div className="flex items-start sm:items-center justify-between mb-2 sm:mb-3 gap-2 relative z-10">
             <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
-              <div className="bg-gradient-to-br from-[#B38538]/30 via-[#74A0C5]/20 to-[#B38538]/30 p-1.5 sm:p-2 rounded-xl flex-shrink-0">
+              <div className="bg-[#74A0C5]/20 p-1.5 sm:p-2 rounded-xl flex-shrink-0">
                 <Heart className="text-[#081623] w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
               </div>
               <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#081623]">Ceremony</h3>
@@ -264,15 +250,13 @@ export function Details() {
 
         {/* Reception */}
         <div 
-          className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/25 to-[#FFFFFF] backdrop-blur-md rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 shadow-[0_4px_16px_rgba(8,22,35,0.2)] border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden"
+          className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-6 shadow-lg sm:shadow-xl border border-[#B38538]/30 hover:border-[#B38538] hover:shadow-[0_6px_24px_rgba(8,22,35,0.3)] transition-all duration-700 hover:scale-[1.01] group relative overflow-hidden"
           onMouseEnter={() => setHoveredCard('reception')}
           onMouseLeave={() => setHoveredCard(null)}
         >
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#B38538]/15 via-[#74A0C5]/10 to-transparent rounded-full blur-2xl opacity-30" />
-          
           <div className="flex items-start sm:items-center justify-between mb-2 sm:mb-3 gap-2 relative z-10">
             <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
-              <div className="bg-gradient-to-br from-[#B38538]/30 via-[#74A0C5]/20 to-[#B38538]/30 p-1.5 sm:p-2 rounded-xl flex-shrink-0">
+              <div className="bg-[#74A0C5]/20 p-1.5 sm:p-2 rounded-xl flex-shrink-0">
                 <Utensils className="text-[#081623] w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5" />
               </div>
               <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#081623]">Reception</h3>
@@ -361,10 +345,9 @@ export function Details() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6 max-w-5xl mx-auto">
           {/* Dress Code */}
-          <div className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/20 to-[#FFFFFF] backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-lg transition-all duration-500 hover:scale-[1.01] group relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-[#74A0C5]/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 border border-[#B38538]/30 hover:border-[#B38538] hover:shadow-lg transition-all duration-500 hover:scale-[1.01] group relative overflow-hidden">
             <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
-              <div className="bg-[#74A0C5]/25 p-1.5 sm:p-2 rounded-lg flex-shrink-0">
+              <div className="bg-[#74A0C5]/20 p-1.5 sm:p-2 rounded-lg flex-shrink-0">
                 <Shirt className="text-[#081623] w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" />
               </div>
               <h4 className="font-bold text-xs sm:text-sm md:text-base text-[#081623]">Dress Code</h4>
@@ -409,10 +392,9 @@ export function Details() {
           </div>
 
           {/* Travel & Parking */}
-          <div className="bg-gradient-to-br from-[#FFFFFF] via-[#74A0C5]/20 to-[#FFFFFF] backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 border border-[#B38538]/50 hover:border-[#B38538] hover:shadow-lg transition-all duration-500 hover:scale-[1.01] group relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-[#74A0C5]/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 border border-[#B38538]/30 hover:border-[#B38538] hover:shadow-lg transition-all duration-500 hover:scale-[1.01] group relative overflow-hidden">
             <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 relative z-10">
-              <div className="bg-[#74A0C5]/25 p-1.5 sm:p-2 rounded-lg flex-shrink-0">
+              <div className="bg-[#74A0C5]/20 p-1.5 sm:p-2 rounded-lg flex-shrink-0">
                 <Car className="text-[#081623] w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4" />
               </div>
               <h4 className="font-bold text-xs sm:text-sm md:text-base text-[#081623]">Parking & Travel</h4>
@@ -450,7 +432,7 @@ export function Details() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-[#081623]/80 to-[#172652]/70 rounded-lg p-2 sm:p-2.5 border border-[#B38538]/30">
+              <div className="bg-[#081623] rounded-lg p-2 sm:p-2.5 border border-[#B38538]/30">
                 <p className="text-[9px] sm:text-[10px] md:text-xs font-semibold text-[#FFFFFF] mb-1 flex items-center gap-1">
                   <span className="text-xs">📍</span>
                   Quick Tips
