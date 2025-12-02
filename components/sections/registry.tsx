@@ -2,6 +2,7 @@
 
 import { Section } from "@/components/section"
 import { SectionLabel } from "@/components/section-label"
+import Image from "next/image"
 
 export function Registry() {
   return (
@@ -38,6 +39,25 @@ export function Registry() {
                   
                   {/* Decorative bottom border */}
                   <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 sm:w-20 md:w-24 h-px bg-gradient-to-r from-transparent via-[#B38538]/50 to-transparent"></div>
+                </div>
+              </div>
+              
+              {/* GCash QR Code */}
+              <div className="mt-4 sm:mt-6 md:mt-8 flex flex-col items-center space-y-2 sm:space-y-3">
+                <div className="bg-white/50 rounded-lg p-2 sm:p-2.5 border border-[#B38538]/20">
+                  <p className="text-xs sm:text-sm md:text-base text-[#081623] font-sans font-medium">
+                    GCash QR Code
+                  </p>
+                </div>
+                <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 bg-white rounded-lg p-3 sm:p-4 shadow-md border border-[#B38538]/30">
+                  <Image
+                    src="/QR/Gcash new.png"
+                    alt="GCash QR Code"
+                    fill
+                    className="object-contain rounded"
+                    priority={false}
+                    quality={90}
+                  />
                 </div>
               </div>
             </div>

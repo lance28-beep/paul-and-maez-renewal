@@ -24,7 +24,7 @@ export function IntroImage() {
             letterSpacing: "0.3em",
           }}
         >
-          12 December 2025
+          22 December 2025
         </p>
       </div>
     </section>
