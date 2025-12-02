@@ -117,7 +117,7 @@ export function Hero() {
 
           {/* The Renewal of Our Wedding Vows */}
           <h2 
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-normal tracking-[0.05em] sm:tracking-[0.1em] md:tracking-[0.15em] mb-2 sm:mb-3 md:mb-4 lg:mb-5 leading-tight px-1"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-normal tracking-[0.05em] sm:tracking-[0.1em] md:tracking-[0.15em] mt-6 sm:mt-8 md:mt-10 lg:mt-12 mb-6 sm:mb-8 md:mb-10 lg:mb-12 leading-tight px-1 whitespace-nowrap"
             style={{ 
               fontFamily: '"Inter", sans-serif',
               color: '#1a1a1a',
@@ -161,7 +161,7 @@ export function Hero() {
               fontStyle: 'italic'
             }}
           >
-            Set sail with us as we promise our forever once more.
+            Set sail with us as we promise our forever once more. ⚓️
           </p>
 
         </div>
